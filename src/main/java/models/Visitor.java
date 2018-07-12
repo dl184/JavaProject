@@ -1,3 +1,5 @@
+package models;
+
 public class Visitor {
 
     private int id;

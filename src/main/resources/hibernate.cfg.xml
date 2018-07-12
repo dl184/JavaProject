@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="hbm2ddl.auto">create</property>
+        <property name="connection.driver_class">org.postgresql.Driver</property>
+        <property name="connection.url">jdbc:postgresql://localhost/dinodb</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL9Dialect</property>
+        <property name="connection.pool_size">1</property>
+        <property name="show_sql">true</property>
+        <mapping class = "Models.Dinosaur"/>
+        <mapping class = "Models.Paddock"/>
+        <mapping class = "Models.Park"/>
+        <mapping class = "Models.Visitor"/>
+        <mapping class = "Models.Team"/>
+        <mapping class = "Models.Attraction"/>
+        <mapping class = "Models.BarStall"/>
+        <mapping class = "Models.FoodStall"/>
+        <mapping class = "Models.RollerCoaster"/>
+
+    </session-factory>
+</hibernate-c

@@ -1,10 +1,10 @@
 # Java Project Definitions - Paired Project
 
-## Jurassic Park
+## Jurassic models.Park
 
 Goal: Create a web application in Spark with Hibernate/Java back end
 
-You have been asked to create a web app to allow the management in Jurassic Park manage the dinosaur population and visitor tracking of Jurassic Park. (No expense spared)
+You have been asked to create a web app to allow the management in Jurassic models.Park manage the dinosaur population and visitor tracking of Jurassic models.Park. (No expense spared)
 
 ### MVP
 

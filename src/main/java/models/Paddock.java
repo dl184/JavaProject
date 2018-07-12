@@ -1,3 +1,5 @@
+package models;
+
 public class Paddock {
 
     private int id;
