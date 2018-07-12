@@ -11,7 +11,7 @@ public class DinosaurTest {
 
     @Before
     public void setup(){
-        Dinosaur dinosaur = new Dinosaur(" Tyrannosaurus rex", "Prehistoric Animals","Carnivores",609,"Green");
+        dinosaur = new Dinosaur("Tyrannosaurus rex", "Prehistoric Animals","Carnivores",609,"Green");
     }
 
     @Test
@@ -21,7 +21,7 @@ public class DinosaurTest {
 
     @Test
     public void dinosaurHasType(){
-        assertEquals("Prehistoric Animals", dinosaur.getEats());
+        assertEquals("Prehistoric Animals", dinosaur.getType());
     }
 
     @Test
