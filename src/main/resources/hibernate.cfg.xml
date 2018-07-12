@@ -15,11 +15,12 @@
         <mapping class = "Models.Paddock"/>
         <mapping class = "Models.Park"/>
         <mapping class = "Models.Visitor"/>
-        <mapping class = "Models.Team"/>
         <mapping class = "Models.Attraction"/>
         <mapping class = "Models.BarStall"/>
         <mapping class = "Models.FoodStall"/>
         <mapping class = "Models.RollerCoaster"/>
+        <mapping class = "Models.Waltzers"/>
+        <mapping class = "Models.GhostTrain"/>
 
     </session-factory>
 </hibernate-configuration>

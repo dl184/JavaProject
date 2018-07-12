@@ -5,8 +5,10 @@ public class FoodStall {
     private int id;
     private String name;
 
+
     public FoodStall() {
     }
+
 
     public FoodStall(String name) {
         this.name = name;

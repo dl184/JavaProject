@@ -8,6 +8,7 @@ public class DinosaurTest {
 
      Dinosaur dinosaur;
 
+
     @Before
     public void setup(){
         Dinosaur dinosaur = new Dinosaur(" Tyrannosaurus rex", "Prehistoric Animals","Carnivores",609,"Green");
