@@ -20,13 +20,18 @@
         </plugins>
     </build>
 
-    <dependencies>
         <dependency>
             <groupId>com.sparkjava</groupId>
             <artifactId>spark-core</artifactId>
             <version>2.7.1</version>
         </dependency>
-    </dependencies>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
 
 
     <dependencies>
@@ -75,7 +80,12 @@
             <groupId>com.sparkjava</groupId>
             <artifactId>spark-template-velocity</artifactId>
             <version>2.7.1</version>
-        </dependency>
+        </dependency><dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>RELEASE</version>
+        <scope>test</scope>
+    </dependency>
 
 
     </dependencies>
