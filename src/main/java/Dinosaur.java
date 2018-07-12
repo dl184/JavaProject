@@ -1,17 +1,19 @@
 public class Dinosaur {
 
     private int id;
+    private String name;
     private String type;
-    private String bloodType;
+    private String eats;
     private int height;
     private String color;
 
     public Dinosaur() {
     }
 
-    public Dinosaur(String type, String bloodType, int height, String color) {
+    public Dinosaur(String name, String type, String eats, int height, String color) {
+        this.name = name;
         this.type = type;
-        this.bloodType = bloodType;
+        this.eats = eats;
         this.height = height;
         this.color = color;
     }
@@ -25,6 +27,14 @@ public class Dinosaur {
         this.id = id;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getType() {
         return type;
     }
@@ -33,13 +43,6 @@ public class Dinosaur {
         this.type = type;
     }
 
-    public String getBloodType() {
-        return bloodType;
-    }
-
-    public void setBloodType(String bloodType) {
-        this.bloodType = bloodType;
-    }
 
     public int getHeight() {
         return height;
