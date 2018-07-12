@@ -8,6 +8,7 @@ public class FoodStall {
     public FoodStall(){
         }
 
+
     public FoodStall(String name) {
         this.name = name;
     }

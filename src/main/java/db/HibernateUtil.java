@@ -1,6 +1,10 @@
+
 package db;
+import org.eclipse.jetty.websocket.common.SessionFactory;
 import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
+
+
+import javax.security.auth.login.Configuration;
 
 public class HibernateUtil {
 
@@ -21,4 +25,3 @@ public class HibernateUtil {
         return sessionFactory;
     }
 }
-
