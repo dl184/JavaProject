@@ -13,7 +13,7 @@ public class DinosaurTest {
     @Before
     public void setup(){
 
-        dinosaur = new Dinosaur(" Tyrannosaurus rex", "Prehistoric Animals","Carnivores",609,"Green");
+        dinosaur = new Dinosaur("Tyrannosaurus rex", "Prehistoric Animals","Carnivores",609,"Green");
 
     }
 
