@@ -22,4 +22,4 @@
         <mapping class = "Models.RollerCoaster"/>
 
     </session-factory>
-</hibernate-c
+</hibernate-configuration>
