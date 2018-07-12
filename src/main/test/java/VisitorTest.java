@@ -10,7 +10,7 @@ public class VisitorTest {
 
     @Before
     public void setUp() {
-        Visitor visitor = new Visitor("Bob Jones", 150, 33, 182);
+        visitor = new Visitor("Bob Jones", 150, 33, 182);
         }
 
     @Test
