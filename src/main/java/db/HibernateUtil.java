@@ -1,10 +1,7 @@
 
 package db;
-import org.eclipse.jetty.websocket.common.SessionFactory;
 import org.hibernate.SessionFactory;
-
-
-import javax.security.auth.login.Configuration;
+import org.hibernate.cfg.Configuration;
 
 public class HibernateUtil {
 
