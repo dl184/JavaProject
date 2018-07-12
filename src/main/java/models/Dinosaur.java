@@ -18,8 +18,8 @@ public class Dinosaur {
         this.eats = eats;
         this.height = height;
         this.color = color;
-    }
 
+    }
 
     public int getId() {
         return id;
@@ -45,6 +45,13 @@ public class Dinosaur {
         this.type = type;
     }
 
+    public String getEats() {
+        return eats;
+    }
+
+    public void setEats(String eats) {
+        this.eats = eats;
+    }
 
     public int getHeight() {
         return height;
@@ -62,3 +69,4 @@ public class Dinosaur {
         this.color = color;
     }
 }
+

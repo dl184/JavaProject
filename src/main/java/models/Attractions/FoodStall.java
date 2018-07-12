@@ -5,8 +5,8 @@ public class FoodStall {
     private int id;
     private String name;
 
-    public class FoodStall(){
-        }
+    public FoodStall() {
+    }
 
     public FoodStall(String name) {
         this.name = name;
