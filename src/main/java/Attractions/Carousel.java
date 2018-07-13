@@ -1,15 +1,16 @@
-package models.Attractions;
+package Attractions;
 
-public class FoodStall {
+import Behaviours.ITicketed;
+
+public class Carousel extends Attraction implements ITicketed {
 
     private int id;
     private String name;
 
-    public FoodStall(){
-        }
+    public Carousel() {
+    }
 
-
-    public FoodStall(String name) {
+    public Carousel(String name) {
         this.name = name;
     }
 
@@ -27,5 +28,9 @@ public class FoodStall {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public double defaultPrice() {
+        return 4.80;
     }
 }

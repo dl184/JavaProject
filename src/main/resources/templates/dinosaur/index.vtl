@@ -1,0 +1,29 @@
+<p class="pageHeader">All Dinosaur</p>
+
+<div class="container">
+    <table>
+        <tr>
+            <th>Paddock</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Eats</th>
+            <th>Height</th>
+            <th>Color</th>
+        </tr>
+
+        #foreach($dinosaur in $dinosaurs)
+        <tr>
+            <td>$dinosaur.getPaddock</td>
+            <td>$dinosaur.getName()</td>
+            <td>$dinosaur.getType()</td>
+            <td>$dinosaur.getEats()</td>
+            <td>$dinosaur.getHeight</td>
+            <td>$dinosaur.getColor</td>
+        </tr>
+        #end
+    </table>
+
+
+
+</div>
+

@@ -1,0 +1,26 @@
+<p class="pageHeader">All Visitors</p>
+
+<div class="container">
+    <table>
+        <tr>
+        <th>Name</th>
+        <th>Wallet</th>
+        <th>Age</th>
+        <th>Height</th>
+        </tr>
+
+        #foreach($visitor in $visitors)
+        <tr>
+            <td>$visitor.getName()</td>
+            <td>$visitor.getWallet()</td>
+            <td>$visitor.getAge()</td>
+            <td>$visitor.getHeight</td>
+        </tr>
+        #end
+    </table>
+
+
+
+</div>
+
+

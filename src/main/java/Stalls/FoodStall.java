@@ -1,17 +1,25 @@
-package models.Attractions;
+package Stalls;
 
-public class BarStall {
+import javax.persistence.*;
+
+@Entity
+@Table(name="foodstall")
+public class FoodStall extends Stall {
 
     private int id;
     private String name;
 
-    public BarStall(){
+    public FoodStall(){
         }
 
-    public BarStall(String name) {
+
+    public FoodStall(String name) {
         this.name = name;
     }
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name="id")
     public int getId() {
         return id;
     }
@@ -20,6 +28,7 @@ public class BarStall {
         this.id = id;
     }
 
+    @Column(name="name")
     public String getName() {
         return name;
     }

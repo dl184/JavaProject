@@ -1,14 +1,14 @@
-package models.Attractions;
+package Attractions;
 
-public class Rollercoaster  {
+public abstract class Attraction {
 
     private int id;
     private String name;
 
-    public Rollercoaster(){
+    public Attraction(){
         }
 
-    public Rollercoaster(String name) {
+    public Attraction(String name) {
         this.name = name;
     }
 

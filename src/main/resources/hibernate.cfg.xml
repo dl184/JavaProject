@@ -8,19 +8,16 @@
         <property name="hbm2ddl.auto">create</property>
         <property name="connection.driver_class">org.postgresql.Driver</property>
         <property name="connection.url">jdbc:postgresql://localhost/dinodb</property>
-        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL9Dialect</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
         <property name="connection.pool_size">1</property>
         <property name="show_sql">true</property>
-        <mapping class = "Models.Dinosaur"/>
-        <mapping class = "Models.Paddock"/>
-        <mapping class = "Models.Park"/>
-        <mapping class = "Models.Visitor"/>
-        <mapping class = "Models.Attraction"/>
-        <mapping class = "Models.BarStall"/>
-        <mapping class = "Models.FoodStall"/>
-        <mapping class = "Models.RollerCoaster"/>
-        <mapping class = "Models.Waltzers"/>
-        <mapping class = "Models.GhostTrain"/>
+        <mapping class = "models.Dinosaur"/>
+        <mapping class = "models.Paddock"/>
+        <mapping class = "models.Park"/>
+        <mapping class = "models.Visitor"/>
+        <mapping class = "models.DinosaurFood"/>
+
+
 
     </session-factory>
 </hibernate-configuration>

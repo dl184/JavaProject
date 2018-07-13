@@ -1,6 +1,12 @@
 package models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="visitor")
 public class Visitor {
+
+    Park park;
 
     private int id;
     private String name;
@@ -18,6 +24,8 @@ public class Visitor {
         this.height = height;
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getId() {
         return id;
     }
@@ -26,6 +34,7 @@ public class Visitor {
         this.id = id;
     }
 
+    @Column(name="name")
     public String getName() {
         return name;
     }
@@ -34,6 +43,7 @@ public class Visitor {
         this.name = name;
     }
 
+    @Column(name="wallet")
     public int getWallet() {
         return wallet;
     }
@@ -42,6 +52,17 @@ public class Visitor {
         this.wallet = wallet;
     }
 
+    @ManyToOne
+    @JoinColumn(name="park_id", nullable=true)
+    public Park getPark() {
+        return park;
+    }
+
+    public void setPark(Park park) {
+        this.park = park;
+    }
+
+    @Column(name="age")
     public int getAge() {
         return age;
     }
@@ -50,6 +71,7 @@ public class Visitor {
         this.age = age;
     }
 
+    @Column(name="height")
     public int getHeight() {
         return height;
     }
