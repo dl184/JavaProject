@@ -1,14 +1,14 @@
-package models.Attractions;
+package Attractions;
 
-public class Attraction {
+public class BarStall {
 
     private int id;
     private String name;
 
-    public Attraction(){
+    public BarStall(){
         }
 
-    public Attraction(String name) {
+    public BarStall(String name) {
         this.name = name;
     }
 

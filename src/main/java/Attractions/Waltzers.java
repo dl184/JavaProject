@@ -1,14 +1,14 @@
-package models.Attractions;
+package Attractions;
 
-public class GhostTrain {
+public class Waltzers {
 
     private int id;
     private String name;
 
-    public GhostTrain(){
+    public Waltzers(){
         }
 
-    public GhostTrain(String name) {
+    public Waltzers(String name) {
         this.name = name;
     }
 
