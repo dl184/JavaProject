@@ -1,4 +1,18 @@
 package db;
 
-public class DBPark {
-}
+import models.Dinosaur;
+import models.Park;
+import models.Visitor;
+
+public class DBPark{
+
+
+    public static void addDinosaurToPark(Dinosaur dinosaur, Park park) {
+        park.addDinosaur(dinosaur);
+        DBHelper.save(park);
+        DBHelper.save(dinosaur);
+        }
+
+
+    }
+

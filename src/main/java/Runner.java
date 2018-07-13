@@ -1,4 +1,7 @@
 import db.DBHelper;
+import db.DBPaddock;
+import db.DBPark;
+import db.DBVisitor;
 import models.Dinosaur;
 import models.Paddock;
 import models.Park;
@@ -37,5 +40,12 @@ public class Runner {
 
         Visitor visitor3 = new Visitor("IT",30000,32,190);
         DBHelper.save(visitor3);
+
+        DBPark.addDinosaurToPark(dinosaur1, park);
+
+        DBPaddock.addDinosaurToPaddock(dinosaur2, paddock1);
+
+        DBVisitor.addVisitorToPark(visitor1, park);
+
     }
 }

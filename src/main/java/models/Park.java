@@ -2,28 +2,32 @@ package models;
 
 
 import javax.persistence.*;
+import javax.swing.plaf.ViewportUI;
 import java.util.ArrayList;
 import java.util.List;
+
 
 @Entity
 @Table(name="park")
 public class Park {
 
-    List<Visitor> visitors;
 
     private int id;
     private String name;
     private int till;
     private int capacity;
+    private List<Dinosaur> dinosaur;
+    private List<Visitor> visitors;
 
-    public Park(){
-        }
+    public Park() {
+    }
 
     public Park(String name, int till, int capacity) {
         this.name = name;
         this.till = till;
         this.capacity = capacity;
         this.visitors = new ArrayList<Visitor>();
+        this.dinosaur = new ArrayList<Dinosaur>();
     }
 
     @Id
@@ -36,7 +40,7 @@ public class Park {
         this.id = id;
     }
 
-    @Column(name="name")
+    @Column(name = "name")
     public String getName() {
         return name;
     }
@@ -45,7 +49,7 @@ public class Park {
         this.name = name;
     }
 
-    @Column(name="till")
+    @Column(name = "till")
     public int getTill() {
         return till;
     }
@@ -54,7 +58,7 @@ public class Park {
         this.till = till;
     }
 
-    @OneToMany(mappedBy="park", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "park", fetch = FetchType.LAZY)
     public List<Visitor> getVisitors() {
         return visitors;
     }
@@ -63,12 +67,21 @@ public class Park {
         this.visitors = visitors;
     }
 
-    @Column(name="capacity")
+    @Column(name = "capacity")
     public int getCapacity() {
         return capacity;
     }
 
     public void setCapacity(int capacity) {
         this.capacity = capacity;
+    }
+
+
+    public void addDinosaur(Dinosaur dinosaur) {
+        this.dinosaur.add(dinosaur);
+    }
+
+    public void addVisitor(Visitor visitor) {
+        this.visitors.add(visitor);
     }
 }

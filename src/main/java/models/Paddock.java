@@ -71,4 +71,8 @@ public class Paddock {
     public void setFood(String food) {
         this.food = food;
     }
+
+    public void addDinosaur(Dinosaur dinosaurs) {
+        this.dinosaurs.add(dinosaurs);
+    }
 }
