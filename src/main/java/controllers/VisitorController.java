@@ -15,6 +15,7 @@ import static spark.Spark.get;
 import static spark.Spark.post;
 
 public class VisitorController {
+
     public VisitorController() {
         this.setupEndpoints();
     }
