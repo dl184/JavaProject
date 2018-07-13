@@ -1,52 +1,35 @@
-import db.DBHelper;
-import db.DBPaddock;
-import db.DBPark;
-import db.DBVisitor;
+import controllers.DinosaurController;
+import controllers.PaddockController;
+import controllers.ParkController;
+import controllers.VisitorController;
+import db.*;
 import models.Dinosaur;
 import models.Paddock;
 import models.Park;
 import models.Visitor;
+import spark.ModelAndView;
+import spark.template.velocity.VelocityTemplateEngine;
+
+import java.util.HashMap;
+
+import static spark.Spark.get;
 
 public class Runner {
 
     public static void main(String[] args) {
 
-        Dinosaur dinosaur1 = new Dinosaur("Tyrannosaurus rex", "Prehistoric Animals","Carnivores",609,"Green");
-        DBHelper.save(dinosaur1);
+        Seeds.seedData();
 
-        Dinosaur dinosaur2 = new Dinosaur("Velociraptor","Raptors","carnivore", 182,"red");
-        DBHelper.save(dinosaur2);
+        DinosaurController dinosaurController = new DinosaurController();
+        PaddockController paddockController = new PaddockController();
+        ParkController parkController = new ParkController();
+        VisitorController visitorController = new VisitorController();
 
-        Dinosaur dinosaur3 = new Dinosaur("barney","Tyrannosaurus rex","Salad", 152,"Purple");
-        DBHelper.save(dinosaur3);
-
-        Paddock paddock1 = new Paddock("Trex Cell",1,"Cows");
-        DBHelper.save(paddock1);
-
-        Paddock paddock2 = new Paddock("VelociraptorCell",5,"Goats");
-        DBHelper.save(paddock2);
-
-        Paddock paddock3 = new Paddock("BarneyCell", 20,"verde salad");
-        DBHelper.save(paddock3);
-
-        Park park = new Park("Dino World",5000,250);
-        DBHelper.save(park);
-
-        Visitor visitor1 = new Visitor("Jimmy Bob",100,25,182);
-        DBHelper.save(visitor1);
-
-        Visitor visitor2 = new Visitor("Rick White", 50, 18,152);
-        DBHelper.save(visitor2);
-
-        Visitor visitor3 = new Visitor("IT",30000,32,190);
-        DBHelper.save(visitor3);
-
-        DBPark.addDinosaurToPark(dinosaur1, park);
-
-        DBPaddock.addDinosaurToPaddock(dinosaur2, paddock1);
-
-        DBVisitor.addVisitorToPark(visitor1, park);
-
+//        get("/home", (req, res) -> {
+//            HashMap<String, Object> model = new HashMap<>();
+//            model.put("template", "templates/home.vtl");
+//            return new ModelAndView(model, "templates/layout.vtl");
+//        }, new VelocityTemplateEngine());
 
     }
 }

@@ -4,6 +4,10 @@ public abstract class Stall {
 
     public String name;
 
+    public Stall(){
+
+    }
+
     public Stall(String name) {
         this.name = name;
     }

@@ -3,7 +3,12 @@ package Stalls;
 import Behaviours.ISecurity;
 import models.Visitor;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="barstall")
 public class BarStall extends Stall implements ISecurity {
+
 
     private int id;
     private String name;
@@ -15,6 +20,9 @@ public class BarStall extends Stall implements ISecurity {
         this.name = name;
     }
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name="id")
     public int getId() {
         return id;
     }
@@ -23,6 +31,7 @@ public class BarStall extends Stall implements ISecurity {
         this.id = id;
     }
 
+    @Column(name="name")
     public String getName() {
         return name;
     }

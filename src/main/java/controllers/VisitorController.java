@@ -1,6 +1,7 @@
 package controllers;
 
 import db.DBHelper;
+import models.DinosaurFood;
 import models.Paddock;
 import models.Visitor;
 import spark.ModelAndView;
@@ -42,7 +43,7 @@ public class VisitorController {
             String name = req.queryParams("Name");
             int capacity = Integer.parseInt(req.queryParams("capacity"));
             String food = req.queryParams("food");
-            paddock = new Paddock(name, capacity, food);
+            paddock = new Paddock(name, capacity, DinosaurFood.COW);
             DBHelper.save(paddock);
             res.redirect("/visitors");
             return null;

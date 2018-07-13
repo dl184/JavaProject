@@ -15,12 +15,12 @@ public class Paddock implements ITicketed {
     private int id;
     private String name;
     private int capacity;
-    private String food;
+    private DinosaurFood food;
 
     public Paddock() {
     }
 
-    public Paddock(String name, int capacity, String food) {
+    public Paddock(String name, int capacity, DinosaurFood food) {
         this.name = name;
         this.capacity = capacity;
         this.food = food;
@@ -66,11 +66,11 @@ public class Paddock implements ITicketed {
     }
 
     @Column(name = "food")
-    public String getFood() {
+    public DinosaurFood getFood() {
         return food;
     }
 
-    public void setFood(String food) {
+    public void setFood(DinosaurFood food) {
         this.food = food;
     }
 

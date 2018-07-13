@@ -1,3 +1,4 @@
+import models.DinosaurFood;
 import models.Paddock;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,8 +12,8 @@ public class PaddockTest {
 
     @Before
     public void setUp() {
-        paddock1 = new Paddock("Zone 1", 6, "Plants");
-        paddock2 = new Paddock("Zone 2", 4, "Meat");
+        paddock1 = new Paddock("Zone 1", 6, DinosaurFood.COW);
+        paddock2 = new Paddock("Zone 2", 4, DinosaurFood.PLANTS);
         }
 
     @Test

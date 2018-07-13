@@ -1,4 +1,5 @@
 import models.Dinosaur;
+import models.Paddock;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -6,14 +7,14 @@ import static org.junit.Assert.assertEquals;
 
 public class DinosaurTest {
 
-
+    Paddock paddock;
     Dinosaur dinosaur;
 
 
     @Before
     public void setup(){
-
-        dinosaur = new Dinosaur("Tyrannosaurus rex", "Prehistoric Animals","Carnivores",609,"Green");
+        paddock = new Paddock();
+        dinosaur = new Dinosaur(paddock, "Tyrannosaurus rex", "Prehistoric Animals","Carnivores",609,"Green", 24);
 
     }
 
@@ -40,5 +41,10 @@ public class DinosaurTest {
     @Test
     public void dinosaurHasColor(){
         assertEquals("Green", dinosaur.getColor());
+    }
+
+    @Test
+    public void dinosaurRampage(){
+        assertEquals("ROARRRR I'M HUNGRY", dinosaur.dinosaurRampage());
     }
 }

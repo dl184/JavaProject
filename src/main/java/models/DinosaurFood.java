@@ -6,8 +6,5 @@ public enum DinosaurFood {
         COW,
         GOAT;
 
-
-        DinosaurFood() {
-        }
     }
     
