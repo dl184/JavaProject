@@ -1,4 +1,4 @@
-package models.Attractions;
+package Attractions;
 
 public class Rollercoaster  {
 

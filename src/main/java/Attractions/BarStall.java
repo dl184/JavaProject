@@ -1,15 +1,14 @@
-package models.Attractions;
+package Attractions;
 
-public class FoodStall {
+public class BarStall {
 
     private int id;
     private String name;
 
-    public FoodStall(){
+    public BarStall(){
         }
 
-
-    public FoodStall(String name) {
+    public BarStall(String name) {
         this.name = name;
     }
 

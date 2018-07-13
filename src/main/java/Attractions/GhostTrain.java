@@ -1,14 +1,14 @@
-package models.Attractions;
+package Attractions;
 
-public class BarStall {
+public class GhostTrain {
 
     private int id;
     private String name;
 
-    public BarStall(){
+    public GhostTrain(){
         }
 
-    public BarStall(String name) {
+    public GhostTrain(String name) {
         this.name = name;
     }
 
