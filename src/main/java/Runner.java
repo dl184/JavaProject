@@ -37,5 +37,9 @@ public class Runner {
 
         Visitor visitor3 = new Visitor("IT",30000,32,190);
         DBHelper.save(visitor3);
+
+
+
+
     }
 }
