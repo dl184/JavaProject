@@ -18,8 +18,9 @@ public class Park {
     private int capacity;
     private List<Dinosaur> dinosaur;
     private List<Visitor> visitors;
+    private String title;
 
-    public Park() {
+    public Park(String title) {
     }
 
     public Park(String name, int till, int capacity) {
@@ -84,4 +85,9 @@ public class Park {
     public void addVisitor(Visitor visitor) {
         this.visitors.add(visitor);
     }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
 }

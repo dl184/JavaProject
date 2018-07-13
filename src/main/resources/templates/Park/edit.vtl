@@ -1,0 +1,9 @@
+<p class="pageHeader">Edit Park</p>
+
+<form action="/parks/$park.getId()" method="post">
+    <label for="Name">name:</label>
+    <input class="inputbox" type="text" name="name" required="true" value="$park.getName()" id="Name">
+
+    <input type="submit" value="Save" class="button">
+</form>
+<a href="/parks/$park.getId()"class="button center">Cancel</a>
