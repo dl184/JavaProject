@@ -1,0 +1,9 @@
+<p class="pageHeader">Edit Paddock</p>
+
+<form action="/paddocks/$paddock.getId()" method="post">
+    <label for="Name">name:</label>
+    <input class="inputbox" type="text" name="name" required="true" value="$paddock.getName()" id="Name">
+
+    <input type="submit" value="Save" class="button">
+</form>
+<a href="/paddocks/$paddock.getId()" class="button center">Cancel</a>

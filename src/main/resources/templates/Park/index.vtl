@@ -1,0 +1,22 @@
+<p class="pageHeader">All Parks</p>
+
+<div class="container">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Till</th>
+            <th>Capacity</th>
+        </tr>
+
+        #foreach($park in $parks)
+        <tr>
+            <td>$park.getName()</td>
+            <td>$park.getTill()</td>
+            <td>$park.getCapacity()</td>
+        </tr>
+        #end
+    </table>
+
+
+
+</div>

@@ -1,5 +1,8 @@
 package db;
 
+import models.Dinosaur;
+import models.Park;
+import models.Visitor;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -7,6 +10,8 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
 import java.util.List;
+
+import static org.eclipse.jetty.util.LazyList.getList;
 
 public class DBHelper {
 
@@ -72,7 +77,7 @@ public class DBHelper {
         return results;
     }
 
-    public static <T> T find(Class classType, int id) {
+    public static <T> Park find(Class classType, int id) {
         session = HibernateUtil.getSessionFactory().openSession();
         T result = null;
         try {
@@ -84,9 +89,22 @@ public class DBHelper {
         } finally {
             session.close();
         }
-        return result;
+        return (Park) result;
     }
 
 
+    public static Visitor findVisitorInPark(Park park) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        Criteria cr = session.createCriteria(Visitor.class);
+        cr.add(Restrictions.eq("park", park));
+        return (Visitor) cr.uniqueResult();
+    }
 
+
+    public static List<Dinosaur> findDinoInPark(Park park) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        Criteria cr = session.createCriteria(Dinosaur.class);
+        cr.add(Restrictions.eq("park", park));
+        return getList(cr);
+    }
 }

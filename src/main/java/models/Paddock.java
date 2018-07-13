@@ -17,7 +17,7 @@ public class Paddock implements ITicketed {
     private int capacity;
     private DinosaurFood food;
 
-    public Paddock() {
+    public Paddock(String title) {
     }
 
     public Paddock(String name, int capacity, DinosaurFood food) {
@@ -81,4 +81,5 @@ public class Paddock implements ITicketed {
     public double defaultPrice() {
         return 20.50;
     }
+
 }

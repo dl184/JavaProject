@@ -2,8 +2,6 @@ package controllers;
 
 import db.DBHelper;
 import models.Dinosaur;
-import models.DinosaurFood;
-import models.Paddock;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
@@ -21,7 +19,7 @@ public class DinosaurController {
 
     private void setupEndpoints() {
 
-        get("/dinosaur", (req, res) -> {
+        get("/templates/dinosaur", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             List<Dinosaur> dinosaurs = DBHelper.getAll(Dinosaur.class);
             model.put("template", "templates/visitor/index.vtl");
@@ -29,7 +27,7 @@ public class DinosaurController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
-        get ("/dinosaur/new", (req, res) -> {
+        get ("/templates/dinosaur/new", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             List<Dinosaur> dinosaurs = DBHelper.getAll(Dinosaur.class);
             model.put("dinosaurs", dinosaurs);
