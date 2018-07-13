@@ -1,6 +1,14 @@
 package models;
 
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+@Table(name="paddock")
 public class Paddock {
+
+    List<Dinosaur> dinosaurs;
 
     private int id;
     private String name;
@@ -14,8 +22,12 @@ public class Paddock {
         this.name = name;
         this.capacity = capacity;
         this.food = food;
+        this.dinosaurs = new ArrayList<Dinosaur>();
     }
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name="id")
     public int getId() {
         return id;
     }
@@ -24,6 +36,16 @@ public class Paddock {
         this.id = id;
     }
 
+    @OneToMany(mappedBy="paddock", fetch = FetchType.LAZY)
+    public List<Dinosaur> getDinosaurs() {
+        return dinosaurs;
+    }
+
+    public void setDinosaurs(List<Dinosaur> dinosaurs) {
+        this.dinosaurs = dinosaurs;
+    }
+
+    @Column(name="name")
     public String getName() {
         return name;
     }
@@ -32,6 +54,7 @@ public class Paddock {
         this.name = name;
     }
 
+    @Column(name="capacity")
     public int getCapacity() {
         return capacity;
     }
@@ -40,6 +63,7 @@ public class Paddock {
         this.capacity = capacity;
     }
 
+    @Column(name="food")
     public String getFood() {
         return food;
     }
