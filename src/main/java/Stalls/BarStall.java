@@ -1,18 +1,17 @@
-package Attractions;
+package Stalls;
 
 import Behaviours.ISecurity;
-import Behaviours.ITicketed;
 import models.Visitor;
 
-public class Rollercoaster extends Attraction implements ITicketed, ISecurity {
+public class BarStall extends Stall implements ISecurity {
 
     private int id;
     private String name;
 
-    public Rollercoaster() {
-    }
+    public BarStall(){
+        }
 
-    public Rollercoaster(String name) {
+    public BarStall(String name) {
         this.name = name;
     }
 
@@ -33,13 +32,9 @@ public class Rollercoaster extends Attraction implements ITicketed, ISecurity {
     }
 
     public boolean isAllowedTo(Visitor visitor) {
-        if (visitor.getAge() > 12) {
+        if (visitor.getAge() > 17) {
             return true;
         }
         return false;
-    }
-
-    public double defaultPrice() {
-        return 3.50;
     }
 }

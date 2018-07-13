@@ -1,12 +1,14 @@
 package Attractions;
 
-public class Carousel {
+import Behaviours.ITicketed;
+
+public class Carousel extends Attraction implements ITicketed {
 
     private int id;
     private String name;
 
-    public Carousel(){
-        }
+    public Carousel() {
+    }
 
     public Carousel(String name) {
         this.name = name;
@@ -26,5 +28,9 @@ public class Carousel {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public double defaultPrice() {
+        return 4.80;
     }
 }

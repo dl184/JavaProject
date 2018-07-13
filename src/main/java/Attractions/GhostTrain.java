@@ -1,12 +1,16 @@
 package Attractions;
 
-public class GhostTrain {
+import Behaviours.ISecurity;
+import Behaviours.ITicketed;
+import models.Visitor;
+
+public class GhostTrain extends Attraction implements ITicketed, ISecurity {
 
     private int id;
     private String name;
 
-    public GhostTrain(){
-        }
+    public GhostTrain() {
+    }
 
     public GhostTrain(String name) {
         this.name = name;
@@ -26,5 +30,16 @@ public class GhostTrain {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public boolean isAllowedTo(Visitor visitor) {
+        if (visitor.getAge() > 12) {
+            return true;
+        }
+        return false;
+    }
+
+    public double defaultPrice() {
+        return 6.50;
     }
 }

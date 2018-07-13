@@ -1,6 +1,6 @@
 package Attractions;
 
-public class Attraction {
+public abstract class Attraction {
 
     private int id;
     private String name;

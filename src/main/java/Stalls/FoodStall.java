@@ -1,14 +1,15 @@
-package Attractions;
+package Stalls;
 
-public class BarStall {
+public class FoodStall extends Stall {
 
     private int id;
     private String name;
 
-    public BarStall(){
+    public FoodStall(){
         }
 
-    public BarStall(String name) {
+
+    public FoodStall(String name) {
         this.name = name;
     }
 
