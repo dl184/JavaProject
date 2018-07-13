@@ -6,12 +6,15 @@ import static org.junit.Assert.assertEquals;
 
 public class DinosaurTest {
 
-     Dinosaur dinosaur;
+
+    Dinosaur dinosaur;
 
 
     @Before
     public void setup(){
+
         dinosaur = new Dinosaur("Tyrannosaurus rex", "Prehistoric Animals","Carnivores",609,"Green");
+
     }
 
     @Test
