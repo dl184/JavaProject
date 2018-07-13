@@ -1,6 +1,8 @@
 package models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="dinosaurs")
@@ -93,5 +95,7 @@ public class Dinosaur {
     public void setColor(String color) {
         this.color = color;
     }
+
+
 }
 
