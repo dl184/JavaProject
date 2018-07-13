@@ -16,18 +16,21 @@ public class Dinosaur {
     private String eats;
     private int height;
     private String color;
+    private int healthValue;
 
     public Dinosaur() {
     }
 
-    public Dinosaur(String name, String type, String eats, int height, String color) {
+    public Dinosaur(Paddock paddock, String name, String type, String eats, int height, String color, int healthValue) {
+        this.paddock = paddock;
         this.name = name;
         this.type = type;
         this.eats = eats;
         this.height = height;
         this.color = color;
-
+        this.healthValue = healthValue;
     }
+
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -96,6 +99,21 @@ public class Dinosaur {
         this.color = color;
     }
 
+    @Column(name="healthvalue")
+    public int getHealthValue() {
+        return healthValue;
+    }
+
+    public void setHealthValue(int healthValue) {
+        this.healthValue = healthValue;
+    }
+
+    public String dinosaurRampage() {
+        if (this.getHealthValue() < 25) {
+            return "ROARRRR I'M HUNGRY";
+        }
+        return "IM LOVELY AND FULL UP";
+    }
 
 }
 

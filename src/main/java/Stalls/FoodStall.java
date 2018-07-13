@@ -1,5 +1,9 @@
 package Stalls;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="foodstall")
 public class FoodStall extends Stall {
 
     private int id;
@@ -13,6 +17,9 @@ public class FoodStall extends Stall {
         this.name = name;
     }
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name="id")
     public int getId() {
         return id;
     }
@@ -21,6 +28,7 @@ public class FoodStall extends Stall {
         this.id = id;
     }
 
+    @Column(name="name")
     public String getName() {
         return name;
     }

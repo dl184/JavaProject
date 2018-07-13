@@ -2,7 +2,7 @@ package db;
 
 import models.Dinosaur;
 import models.Park;
-import models.Visitor;
+
 
 public class DBPark{
 
@@ -14,5 +14,6 @@ public class DBPark{
         }
 
 
-    }
+
+}
 
