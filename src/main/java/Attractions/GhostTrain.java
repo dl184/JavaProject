@@ -9,11 +9,13 @@ public class GhostTrain extends Attraction implements ITicketed, ISecurity {
     private int id;
     private String name;
 
+
     public GhostTrain() {
     }
 
     public GhostTrain(String name) {
         this.name = name;
+
     }
 
     public int getId() {
@@ -41,5 +43,11 @@ public class GhostTrain extends Attraction implements ITicketed, ISecurity {
 
     public double defaultPrice() {
         return 6.50;
+    }
+
+    public int Rating(Visitor visitor) {
+        return rating;
+
+
     }
 }

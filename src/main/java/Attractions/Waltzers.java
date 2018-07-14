@@ -8,6 +8,7 @@ public class Waltzers extends Attraction implements ITicketed, ISecurity {
 
     private int id;
     private String name;
+    private int rating;
 
     public Waltzers() {
     }
@@ -41,5 +42,9 @@ public class Waltzers extends Attraction implements ITicketed, ISecurity {
 
     public double defaultPrice() {
         return 5.50;
+    }
+
+    public int Rating(Visitor visitor) {
+        return rating;
     }
 }

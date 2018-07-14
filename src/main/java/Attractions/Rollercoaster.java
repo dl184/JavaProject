@@ -8,6 +8,7 @@ public class Rollercoaster extends Attraction implements ITicketed, ISecurity {
 
     private int id;
     private String name;
+    private int rating;
 
     public Rollercoaster() {
     }

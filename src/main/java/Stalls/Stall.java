@@ -1,6 +1,6 @@
 package Stalls;
 
-public abstract class Stall {
+abstract class Stall {
 
     public String name;
 

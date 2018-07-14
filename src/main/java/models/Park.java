@@ -2,7 +2,6 @@ package models;
 
 
 import javax.persistence.*;
-import javax.swing.plaf.ViewportUI;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -90,4 +89,7 @@ public class Park {
         this.title = title;
     }
 
+    public int getVisitorCount() {
+        return visitors.size();
+        }
 }
