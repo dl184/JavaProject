@@ -63,7 +63,7 @@ public class VisitorController {
             int height = Integer.parseInt(req.queryParams("height"));
             Visitor visitor = new Visitor(Name, wallet, age, height);
             DBHelper.save(visitor);
-            res.redirect("/visitor");
+            res.redirect("/visitors");
             return null;
         }, new VelocityTemplateEngine());
 

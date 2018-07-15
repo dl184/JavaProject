@@ -4,8 +4,8 @@
 //import controllers.VisitorController;
 //import db.*;
 //import models.Dinosaur;
-//import models.Paddock;
-//import models.Park;
+//import models.paddocks;
+//import models.parks;
 //import models.Visitor;
 //import spark.ModelAndView;
 //import spark.template.velocity.VelocityTemplateEngine;
