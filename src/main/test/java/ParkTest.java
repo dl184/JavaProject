@@ -24,7 +24,7 @@ public class ParkTest {
     @Test
     public void canAddVisitorToPark(){
         park.addVisitor(visitor);
-        assertEquals(1, park.getVisitorCount());
+        assertEquals(1, park.visitorCount());
 
     }
 }
