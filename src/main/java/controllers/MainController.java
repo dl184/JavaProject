@@ -19,11 +19,11 @@ public class MainController {
         staticFileLocation("/public");
 
         DinosaurController dinosaurController = new DinosaurController();
-        PaddockController paddockController = new PaddockController();
+        ParkController parkController = new ParkController();
         PaddockController paddockController1 = new PaddockController();
         VisitorController visitorController = new VisitorController();
 
-        get("/", (req, res) -> {
+        get("/home", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             model.put("template","templates/main.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
