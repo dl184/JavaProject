@@ -7,7 +7,7 @@ public class Seeds {
 
     public static void seedData() {
 
-        Paddock paddock = new Paddock("Paddock A", 5, DinosaurFood.PLANTS);
+        Paddock paddock = new Paddock("paddocks A", 5, DinosaurFood.PLANTS);
 
         Dinosaur dinosaur1 = new Dinosaur(paddock, "Tyrannosaurus rex", "Prehistoric Animals","Carnivores",609,"Green", 40);
         DBHelper.save(dinosaur1);

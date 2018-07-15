@@ -58,8 +58,8 @@ public class ParkController {
             Map<String, Object> model = new HashMap<>();
 
             model.put("park", park);
-            model.put("visitor", visitor);
-            model.put("dinosaur", dinosaurs);
+            model.put("visitors", visitor);
+            model.put("dinosaurs", dinosaurs);
             model.put("template", "templates/park/show.vtl");
 
             return new ModelAndView(model, "templates/layout.vtl");
