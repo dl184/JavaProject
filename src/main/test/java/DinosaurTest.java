@@ -16,7 +16,7 @@ public class DinosaurTest {
     @Before
     public void setup(){
 
-        paddock1 = new Paddock("Zone A", 8, DinosaurFood.COW)
+        paddock1 = new Paddock("Zone A", 8, DinosaurFood.COW);
         paddock2 = new Paddock("Dino World",500,DinosaurFood.PLANTS);
 
     }

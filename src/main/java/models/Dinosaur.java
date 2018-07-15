@@ -28,7 +28,7 @@ public class Dinosaur {
         this.eats = eats;
         this.height = height;
         this.color = color;
-        this.healthValue = healthValue;
+        this.healthValue = 100;
     }
 
 
