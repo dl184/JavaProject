@@ -88,7 +88,10 @@ public class Park {
         this.title = title;
     }
 
-    public int getVisitorCount() {
+    public int visitorCount() {
         return this.visitors.size();
-        }
+    }
+
+
+
 }
