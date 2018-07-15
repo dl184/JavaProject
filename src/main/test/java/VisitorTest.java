@@ -33,4 +33,5 @@ public class VisitorTest {
     public void hasHeight(){
         assertEquals(182, visitor.getHeight());
     }
+
 }

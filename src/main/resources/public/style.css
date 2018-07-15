@@ -1,0 +1,23 @@
+body{
+  font-size: 35px;
+  color: red;
+}
+
+html{
+  background-color: blue;
+  color: red;
+  padding: 0px;
+  margin: 0px;
+  background-image: url("/images/dino1.jpg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h1{
+  color: #2E1CD0;
+  text-align:center;
+  text-shadow: 2.5px 2.5px black;
+  font-size: 200px;
+  color: red;
