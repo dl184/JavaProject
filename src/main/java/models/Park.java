@@ -76,7 +76,6 @@ public class Park {
         this.capacity = capacity;
     }
 
-
     public void addDinosaur(Dinosaur dinosaur) {
         this.dinosaur.add(dinosaur);
     }
@@ -89,7 +88,7 @@ public class Park {
         this.title = title;
     }
 
-    public int getVisitorCount() {
-        return visitors.size();
+    public void getVisitorCount() {
+        this.visitors.size();
         }
 }

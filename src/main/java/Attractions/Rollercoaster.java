@@ -1,10 +1,11 @@
 package Attractions;
 
+import Behaviours.IReviewed;
 import Behaviours.ISecurity;
 import Behaviours.ITicketed;
 import models.Visitor;
 
-public class Rollercoaster extends Attraction implements ITicketed, ISecurity {
+public class Rollercoaster extends Attraction implements ITicketed, ISecurity, IReviewed {
 
     private int id;
     private String name;
@@ -42,5 +43,9 @@ public class Rollercoaster extends Attraction implements ITicketed, ISecurity {
 
     public double defaultPrice() {
         return 3.50;
+    }
+
+    public int Rating(Visitor visitor) {
+        return rating;
     }
 }

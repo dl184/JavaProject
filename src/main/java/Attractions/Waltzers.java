@@ -1,10 +1,11 @@
 package Attractions;
 
+import Behaviours.IReviewed;
 import Behaviours.ISecurity;
 import Behaviours.ITicketed;
 import models.Visitor;
 
-public class Waltzers extends Attraction implements ITicketed, ISecurity {
+public class Waltzers extends Attraction implements ITicketed, ISecurity, IReviewed {
 
     private int id;
     private String name;
