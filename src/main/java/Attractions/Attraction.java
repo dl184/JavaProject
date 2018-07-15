@@ -1,15 +1,19 @@
 package Attractions;
 
-public abstract class Attraction {
+import models.Visitor;
+
+abstract class Attraction {
 
     private int id;
     private String name;
+    public int rating;
 
     public Attraction(){
         }
 
-    public Attraction(String name) {
+    public Attraction(String name, int rating) {
         this.name = name;
+        this.rating = rating;
     }
 
     public int getId() {
@@ -27,4 +31,9 @@ public abstract class Attraction {
     public void setName(String name) {
         this.name = name;
     }
+
+    public int Rating(Visitor visitor) {
+        return rating;
+    }
+
 }

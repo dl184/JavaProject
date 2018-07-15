@@ -1,19 +1,22 @@
 package Attractions;
 
+import Behaviours.IReviewed;
 import Behaviours.ISecurity;
 import Behaviours.ITicketed;
 import models.Visitor;
 
-public class GhostTrain extends Attraction implements ITicketed, ISecurity {
+public class GhostTrain extends Attraction implements ITicketed, ISecurity, IReviewed {
 
     private int id;
     private String name;
+
 
     public GhostTrain() {
     }
 
     public GhostTrain(String name) {
         this.name = name;
+
     }
 
     public int getId() {
@@ -42,4 +45,8 @@ public class GhostTrain extends Attraction implements ITicketed, ISecurity {
     public double defaultPrice() {
         return 6.50;
     }
+
+    public int Rating(Visitor visitor) {
+        return rating;
+        }
 }

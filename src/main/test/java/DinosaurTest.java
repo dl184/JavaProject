@@ -1,4 +1,5 @@
 import models.Dinosaur;
+import models.DinosaurFood;
 import models.Paddock;
 import org.junit.Before;
 import org.junit.Test;
@@ -7,14 +8,16 @@ import static org.junit.Assert.assertEquals;
 
 public class DinosaurTest {
 
-    Paddock paddock;
+    Paddock paddock1;
+    Paddock paddock2;
     Dinosaur dinosaur;
 
 
     @Before
     public void setup(){
-        paddock = new Paddock();
-        dinosaur = new Dinosaur(paddock, "Tyrannosaurus rex", "Prehistoric Animals","Carnivores",609,"Green", 24);
+
+        paddock1 = new Paddock("Zone A", 8, DinosaurFood.COW)
+        paddock2 = new Paddock("Dino World",500,DinosaurFood.PLANTS);
 
     }
 

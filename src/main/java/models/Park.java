@@ -2,7 +2,6 @@ package models;
 
 
 import javax.persistence.*;
-import javax.swing.plaf.ViewportUI;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -77,7 +76,6 @@ public class Park {
         this.capacity = capacity;
     }
 
-
     public void addDinosaur(Dinosaur dinosaur) {
         this.dinosaur.add(dinosaur);
     }
@@ -90,4 +88,7 @@ public class Park {
         this.title = title;
     }
 
+    public void getVisitorCount() {
+        this.visitors.size();
+        }
 }
