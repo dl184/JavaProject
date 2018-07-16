@@ -9,6 +9,7 @@ html{
   padding: 30px;
   margin: 0px;
   background-image: url("/images/dino7.jpg");
+  background-image: repeat;
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -45,10 +46,10 @@ h1{
 
 table {
 border-collapse: collapse;
-    width:25%;
+    width:100%;
     color:white;
     background-color: #2a249c96;
-    font-size: 15px;
+    font-size: 25px;
 
     }
 
