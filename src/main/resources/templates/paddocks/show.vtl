@@ -9,18 +9,17 @@
 <div class="container">
     <table>
         <tr>
-            <th>Paddock</th>
             <th>Name</th>
             <th>Capacity</th>
             <th>Food</th>
         </tr>
-        #foreach($paddock in $paddocks)
+
         <tr>
             <td>$paddock.getName()</td>
             <td>$paddock.getCapacity()</td>
             <td>$paddock.getFood()</td>
         <tr>
-            #end
+
     </table>
     <a href="/paddocks/$paddock.getId()/edit" class="button center">Edit</a>
     <form action="/paddock/$paddock.getId()/delete" method="post">

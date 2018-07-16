@@ -16,7 +16,6 @@
             <th>Height</th>
             <th>Color</th>
         </tr>
-        #foreach($dinosaur in $dinosaurs)
         <tr>
             <td>$dinosaur.getPaddock</td>
             <td>$dinosaur.getName()</td>
@@ -25,7 +24,6 @@
             <td>$dinosaur.getHeight</td>
             <td>$dinosaur.getColor</td>
         <tr>
-            #end
     </table>
     <a href="/dinosaurs/$dinosaur.getId()/edit" class="button center">Edit</a>
     <form action="/dinosaurs/$dinosaur.getId()/delete" method="post">
