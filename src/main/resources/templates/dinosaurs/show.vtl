@@ -1,5 +1,11 @@
-<p class="pageHeader">All Dinosaur</p>
+<div>
+    <p> Dinosaur: $dinosaur.getTitle()</p>
+    #if ($paddock)
+    <p> Paddock: $paddock.getName() $paddock.getCapacity() </p>
+    #end
+</div>
 
+<p class="pageHeader">Engineers</p>
 <div class="container">
     <table>
         <tr>
@@ -10,7 +16,6 @@
             <th>Height</th>
             <th>Color</th>
         </tr>
-
         #foreach($dinosaur in $dinosaurs)
         <tr>
             <td>$dinosaur.getPaddock</td>
@@ -19,12 +24,13 @@
             <td>$dinosaur.getEats()</td>
             <td>$dinosaur.getHeight</td>
             <td>$dinosaur.getColor</td>
-            <td><a href="/dinosaur/$dinosaur.getId()" class="button center">Details</a></td>
-        </tr>
-        #end
+        <tr>
+            #end
     </table>
-
-
-
+    <a href="/dinosaurs/$dinosaur.getId()/edit" class="button center">Edit</a>
+    <form action="/dinosaurs/$dinosaur.getId()/delete" method="post">
+        <input type="submit" value="Delete" class="button center">
+    </form>
+    <a href="/dinosaurs" class="button center">Back to list</a>
 </div>
 
