@@ -31,10 +31,8 @@ public class VisitorController {
 
             Map<String, Object> model = new HashMap<>();
             model.put("visitors", visitor);
+            model.put("template", "templates/visitors/edit.vtl");
             model.put("paddock", paddocks);
-            model.put("template", "templates/managers/edit.vtl");
-            model.put("visitor", visitor);
-
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
