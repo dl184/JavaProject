@@ -30,6 +30,7 @@ public class VisitorController {
             List<Paddock> paddocks = DBHelper.getAll(Paddock.class);
 
             Map<String, Object> model = new HashMap<>();
+            model.put("visitors", visitor);
             model.put("paddock", paddocks);
             model.put("template", "templates/managers/edit.vtl");
             model.put("visitor", visitor);
