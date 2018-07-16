@@ -15,12 +15,7 @@
             <td>$visitor.getWallet()</td>
             <td>$visitor.getAge()</td>
             <td>$visitor.getHeight()</td>
-            <td><a href="/visitor/$visitor.getId()" class="button center">Details</a></td>
-            <a href="/visitor/$visitor.getId()/edit" class="button center">Edit</a>
-            <form action="/visitor/$visitor.getId()/delete" method="post">
-                <input type="submit" value="Delete" class="button center">
-            </form>
-            <a href="/visitor" class="button center">Back to list</a>
+            <td><a href="/visitors/$visitor.getId()" class="button center">Details</a></td>
         </tr>
         #end
     </table>
