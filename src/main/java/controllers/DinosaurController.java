@@ -25,7 +25,7 @@ public class DinosaurController {
         get("/dinosaurs", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             List<Dinosaur> dinosaurs = DBHelper.getAll(Dinosaur.class);
-            model.put("template", "templates/visitors/index.vtl");
+            model.put("template", "templates/dinosaurs/index.vtl");
             model.put("dinosaurs", dinosaurs);
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());

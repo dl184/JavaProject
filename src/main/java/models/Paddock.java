@@ -17,7 +17,7 @@ public class Paddock implements ITicketed {
     private int capacity;
     private DinosaurFood food;
 
-    public Paddock(String title) {
+    public Paddock() {
     }
 
     public Paddock(String name, int capacity, DinosaurFood food) {
