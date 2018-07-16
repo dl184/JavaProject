@@ -1,8 +1,17 @@
 <p class="pageHeader">Edit Visitor</p>
 
 <form action="/visitors/$visitor.getId()" method="post">
-    <label for="Name">name:</label>
-    <input class="inputbox" type="text" name="name" required="true" value="$visitor.getName()" id="Name">
+        <label for="name">Name:</label>
+        <input type="text" class="inputBox" name="name" required="true" id="name">
+
+        <label for="wallet">Wallet:</label>
+        <input type="number" class="inputBox" name="wallet" required="true" id="wallet">
+
+        <label for="age">Age:</label>
+        <input type="number" class="inputBox" name="age" required="true" id="age">
+
+        <label for="height">Height:</label>
+        <input type="number" class="inputBox" name="height" required="true" id="height">
 
     <input type="submit" value="Save" class="button">
 </form>
