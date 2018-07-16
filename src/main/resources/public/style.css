@@ -1,5 +1,5 @@
 body{
-  font-size: 35px;
+  font-size: 20px;
   color: red;
 }
 
@@ -8,7 +8,7 @@ html{
   color: red;
   padding: 0px;
   margin: 0px;
-  background-image: url("/images/dino1.jpg");
+  background-image: url("/images/dino7.jpg");
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -19,5 +19,26 @@ h1{
   color: #2E1CD0;
   text-align:center;
   text-shadow: 2.5px 2.5px black;
-  font-size: 200px;
+  font-size: 150px;
   color: red;
+ }
+
+.main_button{
+    background-color: green;
+        border: none;
+        color: white;
+        padding: 32px 16px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 40px;
+        border-radius: 50%;
+        width: 200px;
+        padding: 45px;
+
+    }
+
+.main_button:hover {
+                background-color: red;
+                color: white;
+            }
