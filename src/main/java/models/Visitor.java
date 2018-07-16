@@ -6,13 +6,12 @@ import javax.persistence.*;
 @Table(name="visitors")
 public class Visitor {
 
-    Park park;
-
     private int id;
     private String name;
     private int wallet;
     private int age;
     private int height;
+    private Park park;
 
     public Visitor(){
         }
@@ -52,15 +51,6 @@ public class Visitor {
         this.wallet = wallet;
     }
 
-    @ManyToOne
-    @JoinColumn(name="park_id", nullable=true)
-    public Park getPark() {
-        return park;
-    }
-
-    public void setPark(Park park) {
-        this.park = park;
-    }
 
     @Column(name="age")
     public int getAge() {
@@ -78,5 +68,15 @@ public class Visitor {
 
     public void setHeight(int height) {
         this.height = height;
+    }
+
+    @ManyToOne
+    @JoinColumn(name="park_id", nullable=true)
+    public Park getPark() {
+        return park;
+    }
+
+    public void setPark(Park park) {
+        this.park = park;
     }
 }
