@@ -6,7 +6,7 @@ body{
 html{
   background-color: blue;
   color: red;
-  padding: 0px;
+  padding: 30px;
   margin: 0px;
   background-image: url("/images/dino7.jpg");
   height: 100%;
@@ -42,3 +42,23 @@ h1{
                 background-color: red;
                 color: white;
             }
+
+table {
+border-collapse: collapse;
+    width:25%;
+    color:white;
+    background-color: #2a249c96;
+    font-size: 15px;
+
+    }
+
+table, th, td {
+   border: 1px solid black;
+}
+
+tr:hover {background-color: black;}
+
+.details_button{
+font-color: #fffffff;
+}
+
