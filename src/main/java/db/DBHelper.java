@@ -24,7 +24,7 @@ public class DBHelper {
         session = HibernateUtil.getSessionFactory().openSession();
         try {
             transaction = session.beginTransaction();
-            session.save(object);
+            session.saveOrUpdate(object);
             transaction.commit();
         } catch (HibernateException e) {
             transaction.rollback();
@@ -77,19 +77,29 @@ public class DBHelper {
         return results;
     }
 
-    public static <T> Park find(Class classType, int id) {
+    public static <T> T find(int id, Class classType) {
         session = HibernateUtil.getSessionFactory().openSession();
+        Criteria cr = session.createCriteria(classType);
+        cr.add(Restrictions.eq("id", id));
+        return getUnique(cr);
+
+    }
+
+
+    public static <T> T getUnique(Criteria criteria) {
         T result = null;
         try {
-            Criteria cr = session.createCriteria(classType);
-            cr.add(Restrictions.eq("id", id));
-            result = (T) cr.uniqueResult();
-        } catch (HibernateException e) {
-            e.printStackTrace();
+            transaction = session.beginTransaction();
+            result = (T) criteria.uniqueResult();
+            ;
+            transaction.commit();
+        } catch (HibernateException ex) {
+            transaction.rollback();
+            ex.printStackTrace();
         } finally {
             session.close();
         }
-        return (Park) result;
+        return result;
     }
 
 
@@ -107,4 +117,5 @@ public class DBHelper {
         cr.add(Restrictions.eq("park", park));
         return getList(cr);
     }
+
 }

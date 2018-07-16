@@ -1,11 +1,33 @@
 <div>
-    <p> Visitor: $visitor.getName() $visitor.getWallet() $visitor.getAge() $visitor.getHeight()</p>
-    <p> Park: $park.getName()</p>
-    #if ($visitor)
-    <p> Visitor: $visitor.getName() $visitor.getWallet() $visitor.getAge() $visitor.getHeight()</p>
+    <p> Visitors: $visitor.getTitle()</p>
+    #if ($paddock)
+    <p> Paddock: $paddock.getName()</p>
     #end
-
-
 </div>
 
+<p class="pageHeader">Engineers</p>
+<div class="container">
+    <table>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Wallet</th>
+                <th>Age</th>
+                <th>Height</th>
+            </tr>
 
+            #foreach($visitor in $visitors)
+            <tr>
+                <td>$visitor.getName()</td>
+                <td>$visitor.getWallet()</td>
+                <td>$visitor.getAge()</td>
+                <td>$visitor.getHeight()</td>
+            #end
+    </table>
+</div>
+
+<a href="/visitors/$visitor.getId()/edit" class="button center">Edit</a>
+<form action="/visitors/$visitor.getId()/delete" method="post">
+    <input type="submit" value="Delete" class="button center">
+</form>
+<a href="/visitors" class="button center">Back to list</a>

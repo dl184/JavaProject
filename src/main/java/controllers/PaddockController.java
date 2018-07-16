@@ -22,75 +22,92 @@ public class PaddockController {
 
     private void setupEndpoints() {
 
+        get("/visitors/:id/edit", (req, res) -> {
+            String strId = req.params(":id");
+            Integer intId = Integer.parseInt(strId);
+            Visitor visitor = DBHelper.find(intId, Visitor.class);
+            List<Paddock> paddocks = DBHelper.getAll(Paddock.class);
+
+            Map<String, Object> model = new HashMap<>();
+            model.put("paddock", paddocks);
+            model.put("template", "templates/managers/edit.vtl");
+            model.put("visitor", visitor);
+
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, new VelocityTemplateEngine());
+
+        get("/visitors", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            List<Visitor> visitors = DBHelper.getAll(Visitor.class);
+            model.put("template", "templates/visitors/index.vtl");
+            model.put("visitors", visitors);
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, new VelocityTemplateEngine());
+
+        get ("/visitors/new", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            List<Paddock> paddocks = DBHelper.getAll(Paddock.class);
+            model.put("paddock", paddocks);
+            model.put("template", "templates/visitors/create.vtl");
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, new VelocityTemplateEngine());
 
 
+        get("/visitors/:id", (req, res) -> {
+            String strId = req.params(":id");
+            Integer intId = Integer.parseInt(strId);
+            Visitor visitor = DBHelper.find(intId, Visitor.class);
+            List<Paddock> paddocks = (List<Paddock>) DBHelper.findVisitorInPark(visitor.getPark());
 
-        get("/paddocks/:id/edit", (req, res) -> {
-        String strId = req.params(":id");
-        Integer intId = Integer.parseInt(strId);
-        Park paddocks = DBHelper.find(Paddock.class, intId);
+            Map<String, Object> model = new HashMap<>();
 
-        Map<String, Object> model = new HashMap<>();
-        model.put("paddock", paddocks);
-        model.put("template", "templates/paddocks/edit.vtl");
+            model.put("visitor", visitor);
+            model.put("paddock", paddocks);
+            model.put("template", "templates/visitors/show.vtl");
 
-        return new ModelAndView(model, "templates/layout.vtl");
-    }, new VelocityTemplateEngine());
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, new VelocityTemplateEngine());
 
-    get("/paddocks", (req, res) -> {
-        Map<String, Object> model = new HashMap<>();
-        List<Paddock> paddocks = DBHelper.getAll(Paddock.class);
-        model.put("template", "templates/paddocks/index.vtl");
-        model.put("paddocks", paddocks);
-        return new ModelAndView(model, "templates/layout.vtl");
-    }, new VelocityTemplateEngine());
+        post ("/visitors", (req, res) -> {
+            int paddockId = Integer.parseInt(req.queryParams("paddock"));
+            Paddock paddock = DBHelper.find(paddockId, Paddock.class);
+            String Name = req.queryParams("Name");
+            int age = Integer.parseInt(req.queryParams("age"));
+            int wallet = Integer.parseInt(req.queryParams("wallet"));
+            int height = Integer.parseInt(req.queryParams("height"));
+            Visitor visitor = new Visitor(Name, age, wallet, height);
+            DBHelper.save(visitor);
+            res.redirect("/visitors");
+            return null;
+        }, new VelocityTemplateEngine());
 
-    get ("/paddocks/new", (req, res) -> {
-        Map<String, Object> model = new HashMap<>();
-        model.put("template", "templates/paddocks/create.vtl.vtl");
-        return new ModelAndView(model, "templates/layout.vtl");
-    }, new VelocityTemplateEngine());
+        post ("/visitors/:id/delete", (req, res) -> {
+            int id = Integer.parseInt(req.params(":id"));
+            Visitor visitorToDelete = DBHelper.find(id, Visitor.class);
+            DBHelper.delete(visitorToDelete);
+            res.redirect("/visitors");
+            return null;
+        }, new VelocityTemplateEngine());
 
-    get("/paddocks/:id", (req, res) -> {
-        String strId = req.params(":id");
-        Integer intId = Integer.parseInt(strId);
-        Park paddock = DBHelper.find(Paddock.class, intId);
-        Visitor visitor = DBHelper.findVisitorInPark(paddock);
-        List<Dinosaur> dinosaurs = DBHelper.findDinoInPark(paddock);
+        post ("/visitors/:id", (req, res) -> {
+            String strId = req.params(":id");
+            Integer intId = Integer.parseInt(strId);
+            Visitor visitor = DBHelper.find(intId, Visitor.class);
+            int paddockId = Integer.parseInt(req.queryParams("department"));
+            Paddock paddock = DBHelper.find(paddockId, Paddock.class);
+            String Name = req.queryParams("Name");
+            int age = Integer.parseInt(req.queryParams("age"));
+            int wallet = Integer.parseInt(req.queryParams("wallet"));
+            int height = Integer.parseInt(req.queryParams("height"));
 
-        Map<String, Object> model = new HashMap<>();
+            visitor.setName(Name);
+            visitor.setAge(age);
+            visitor.setHeight(height);
+            visitor.setWallet(wallet);
+            DBHelper.save(visitor);
+            res.redirect("/visitors");
+            return null;
 
-        model.put("paddock", paddock);
-        model.put("visitors", visitor);
-        model.put("dinosaurs", dinosaurs);
-        model.put("template", "templates/paddocks/show.vtl");
-
-        return new ModelAndView(model, "templates/layout.vtl");
-    }, new VelocityTemplateEngine());
-
-    get ("/paddocks/new", (req, res) -> {
-        Map<String, Object> model = new HashMap<>();
-        model.put("template", "templates/paddocks/create.vtl.vtl");
-        return new ModelAndView(model, "templates/layout.vtl");
-    }, new VelocityTemplateEngine());
-
-    post ("/paddocks", (req, res) -> {
-        String title = req.queryParams("title");
-
-        Paddock paddock = new Paddock(title);
-        DBHelper.save(paddock);
-        res.redirect("/paddocks");
-        return null;
-    }, new VelocityTemplateEngine());
-
-    post ("/paddocks/:id/delete", (req, res) -> {
-        int id = Integer.parseInt(req.params(":id"));
-        Park paddockToDelete = DBHelper.find(Paddock.class, id);
-        DBHelper.delete(paddockToDelete);
-        res.redirect("/paddocks");
-        return null;
-    }, new VelocityTemplateEngine());
-
+        }, new VelocityTemplateEngine());
+    }
 }
-}
-
