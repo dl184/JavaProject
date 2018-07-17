@@ -1,10 +1,7 @@
 package controllers;
 
 import db.DBHelper;
-import models.Dinosaur;
-import models.Paddock;
-import models.Park;
-import models.Visitor;
+import models.*;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
@@ -16,6 +13,7 @@ import static spark.Spark.get;
 import static spark.Spark.post;
 
 public class PaddockController {
+
     public PaddockController(){
     this.setupEndpoints();
 }
@@ -29,14 +27,15 @@ public class PaddockController {
             List<Paddock> paddocks = DBHelper.getAll(Paddock.class);
 
             Map<String, Object> model = new HashMap<>();
-            model.put("paddock", paddocks);
+            model.put("paddock", paddock);
+            model.put("paddocks", paddocks);
             model.put("template", "templates/paddocks/edit.vtl");
-            model.put("paddocks", paddock);
 
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
         get("/paddocks", (req, res) -> {
+
             Map<String, Object> model = new HashMap<>();
             List<Paddock> paddocks = DBHelper.getAll(Paddock.class);
             model.put("template", "templates/paddocks/index.vtl");
@@ -68,13 +67,12 @@ public class PaddockController {
 
         post ("/paddocks", (req, res) -> {
             int paddockId = Integer.parseInt(req.queryParams("paddock"));
-            Paddock paddock = DBHelper.find(paddockId, Paddock.class);
-            String Name = req.queryParams("Name");
-            int age = Integer.parseInt(req.queryParams("age"));
-            int wallet = Integer.parseInt(req.queryParams("wallet"));
-            int height = Integer.parseInt(req.queryParams("height"));
-            Visitor visitor = new Visitor(Name, age, wallet, height);
-            DBHelper.saveOrUpdate(visitor);
+            Paddock paddocks = DBHelper.find(paddockId, Paddock.class);
+            String name = req.queryParams("name");
+            int capacity = Integer.parseInt(req.queryParams("Capacity"));
+            String food = req.queryParams("food");
+            Paddock paddock = new Paddock(name, capacity, DinosaurFood.PLANTS);
+            DBHelper.saveOrUpdate(paddock);
             res.redirect("/paddocks");
             return null;
         }, new VelocityTemplateEngine());
@@ -91,14 +89,13 @@ public class PaddockController {
             String strId = req.params(":id");
             Integer intId = Integer.parseInt(strId);
             Paddock paddock = DBHelper.find(intId, Paddock.class);
-            int dinosaurId = Integer.parseInt(req.queryParams("dinosaur"));
-            Dinosaur dinosaur = DBHelper.find(dinosaurId, Dinosaur.class);
-            String Name = req.queryParams("Name");
+            String Name = req.queryParams("name");
             int capacity = Integer.parseInt(req.queryParams("capacity"));
             String food = req.queryParams("food");
 
             paddock.setName(Name);
             paddock.setCapacity(capacity);
+            paddock.setFood(DinosaurFood.PLANTS);
             DBHelper.saveOrUpdate(paddock);
             res.redirect("/paddocks");
             return null;
