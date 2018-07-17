@@ -30,7 +30,7 @@ public class VisitorController {
             List<Paddock> paddocks = DBHelper.getAll(Paddock.class);
 
             Map<String, Object> model = new HashMap<>();
-            model.put("visitors", visitor);
+            model.put("visitor", visitor);
             model.put("template", "templates/visitors/edit.vtl");
             model.put("paddock", paddocks);
             return new ModelAndView(model, "templates/layout.vtl");
@@ -75,8 +75,8 @@ public class VisitorController {
             int age = Integer.parseInt(req.queryParams("age"));
             int wallet = Integer.parseInt(req.queryParams("wallet"));
             int height = Integer.parseInt(req.queryParams("height"));
-            Visitor visitor = new Visitor(Name, age, wallet, height);
-            DBHelper.save(visitor);
+            Visitor visitor = new Visitor(Name, wallet, age, height);
+            DBHelper.saveOrUpdate(visitor);
             res.redirect("/visitors");
             return null;
         }, new VelocityTemplateEngine());
@@ -93,9 +93,7 @@ public class VisitorController {
             String strId = req.params(":id");
             Integer intId = Integer.parseInt(strId);
             Visitor visitor = DBHelper.find(intId, Visitor.class);
-            int paddockId = Integer.parseInt(req.queryParams("department"));
-            Paddock paddock = DBHelper.find(paddockId, Paddock.class);
-            String Name = req.queryParams("Name");
+            String Name = req.queryParams("name");
             int age = Integer.parseInt(req.queryParams("age"));
             int wallet = Integer.parseInt(req.queryParams("wallet"));
             int height = Integer.parseInt(req.queryParams("height"));
@@ -104,7 +102,7 @@ public class VisitorController {
             visitor.setAge(age);
             visitor.setHeight(height);
             visitor.setWallet(wallet);
-            DBHelper.save(visitor);
+            DBHelper.saveOrUpdate(visitor);
             res.redirect("/visitors");
             return null;
 
