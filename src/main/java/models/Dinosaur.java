@@ -16,7 +16,7 @@ public class Dinosaur {
     private String color;
     private int healthValue;
 
-    public Dinosaur(String name, String type, String eats, int height, String color) {
+    public Dinosaur() {
     }
 
     public Dinosaur(Paddock paddock, String name, String type, String eats, int height, String color) {

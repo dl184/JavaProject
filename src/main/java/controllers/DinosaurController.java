@@ -45,7 +45,7 @@ public class DinosaurController {
 
             Map<String, Object> model = new HashMap<>();
 
-            model.put("dinosaur", dinosaur);
+            model.put("dinosaurs", dinosaur);
             model.put("template", "templates/dinosaurs/show.vtl");
 
             return new ModelAndView(model, "templates/layout.vtl");
@@ -59,7 +59,6 @@ public class DinosaurController {
             String Eats = req.queryParams("Eats");
             int height = Integer.parseInt(req.queryParams("height"));
             String color = req.queryParams("Color");
-            Dinosaur dinosaur1 = new Dinosaur(Name, Type, Eats, height,color);
             DBHelper.saveOrUpdate(dinosaur);
             res.redirect("/dinosaurs");
             return null;
