@@ -66,12 +66,10 @@ public class PaddockController {
         }, new VelocityTemplateEngine());
 
         post ("/paddocks", (req, res) -> {
-            int paddockId = Integer.parseInt(req.queryParams("paddock"));
-            Paddock paddocks = DBHelper.find(paddockId, Paddock.class);
             String name = req.queryParams("name");
             int capacity = Integer.parseInt(req.queryParams("Capacity"));
             String food = req.queryParams("food");
-            Paddock paddock = new Paddock(name, capacity, DinosaurFood.PLANTS);
+            Paddock paddock = new Paddock(name, capacity, DinosaurFood.COW);
             DBHelper.saveOrUpdate(paddock);
             res.redirect("/paddocks");
             return null;
