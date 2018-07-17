@@ -69,11 +69,13 @@ public class DinosaurController {
         post ("/dinosaurs", (req, res) -> {
             int dinosaurId = Integer.parseInt(req.queryParams("dinosaur"));
             Dinosaur dinosaur = DBHelper.find(dinosaurId, Dinosaur.class);
+            String Paddock = req.queryParams("paddock");
             String Name = req.queryParams("Name");
             String Type = req.queryParams("Type");
             String Eats = req.queryParams("Eats");
             int height = Integer.parseInt(req.queryParams("height"));
             String color = req.queryParams("Color");
+
             DBHelper.saveOrUpdate(dinosaur);
             res.redirect("/dinosaurs");
             return null;

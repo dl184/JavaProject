@@ -69,9 +69,7 @@ public class VisitorController {
         }, new VelocityTemplateEngine());
 
         post ("/visitors", (req, res) -> {
-            int paddockId = Integer.parseInt(req.queryParams("paddock"));
-            Paddock paddock = DBHelper.find(paddockId, Paddock.class);
-            String Name = req.queryParams("Name");
+            String Name = req.queryParams("name");
             int age = Integer.parseInt(req.queryParams("age"));
             int wallet = Integer.parseInt(req.queryParams("wallet"));
             int height = Integer.parseInt(req.queryParams("height"));

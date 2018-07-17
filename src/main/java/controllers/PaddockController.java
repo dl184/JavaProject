@@ -46,7 +46,7 @@ public class PaddockController {
         get ("/paddocks/new", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             List<Paddock> paddocks = DBHelper.getAll(Paddock.class);
-            model.put("paddock", paddocks);
+            model.put("paddocks", paddocks);
             model.put("template", "templates/paddocks/create.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
