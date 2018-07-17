@@ -67,15 +67,13 @@ public class DinosaurController {
         }, new VelocityTemplateEngine());
 
         post ("/dinosaurs", (req, res) -> {
-            int dinosaurId = Integer.parseInt(req.queryParams("dinosaur"));
-            Dinosaur dinosaur = DBHelper.find(dinosaurId, Dinosaur.class);
-            String Paddock = req.queryParams("paddock");
-            String Name = req.queryParams("Name");
-            String Type = req.queryParams("Type");
-            String Eats = req.queryParams("Eats");
+            String paddock = req.queryParams("paddock");
+            String name = req.queryParams("name");
+            String type = req.queryParams("type");
+            String eats = req.queryParams("eats");
             int height = Integer.parseInt(req.queryParams("height"));
-            String color = req.queryParams("Color");
-
+            String color = req.queryParams("color");
+            Dinosaur dinosaur = new Dinosaur(name,type,eats,height,color);
             DBHelper.saveOrUpdate(dinosaur);
             res.redirect("/dinosaurs");
             return null;

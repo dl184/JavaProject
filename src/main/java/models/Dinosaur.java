@@ -19,7 +19,7 @@ public class Dinosaur {
     public Dinosaur() {
     }
 
-    public Dinosaur(Paddock paddock, String name, String type, String eats, int height, String color) {
+    public Dinosaur(String name, String type, String eats, int height, String color) {
         this.paddock = paddock;
         this.name = name;
         this.type = type;
