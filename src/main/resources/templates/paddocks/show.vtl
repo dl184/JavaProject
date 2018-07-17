@@ -1,4 +1,10 @@
-
+</table>
+<a href="/paddocks/$paddock.getId()/edit" class="button center">Edit</a>
+<form action="/paddock/$paddock.getId()/delete" method="post">
+    <input type="submit" value="Delete" class="button center">
+</form>
+<a href="/paddocks" class="button center">Back to list</a>
+</div>
 
 <div class="container">
     <table>
@@ -14,11 +20,5 @@
             <td>$paddock.getFood()</td>
         <tr>
 
-    </table>
-    <a href="/paddocks/$paddock.getId()/edit" class="button center">Edit</a>
-    <form action="/paddock/$paddock.getId()/delete" method="post">
-        <input type="submit" value="Delete" class="button center">
-    </form>
-    <a href="/paddocks" class="button center">Back to list</a>
-</div>
+
 
