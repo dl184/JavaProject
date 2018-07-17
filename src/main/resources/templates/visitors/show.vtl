@@ -1,9 +1,11 @@
-<div>
-    <p> Visitors: $visitor.getName()</p>
+<a href="/visitors/$visitor.getId()/edit" class="button center">Edit</a>
+<form action="/visitors/$visitor.getId()/delete" method="post">
+    <input type="submit" value="Delete" class="button center">
+</form>
+<a href="/visitors" class="button center">Back to list</a>
 
-</div>
 
-<p class="pageHeader">Visitors</p>
+
 <div class="container">
     <table>
 
@@ -22,8 +24,5 @@
     </table>
 </div>
 
-<a href="/visitors/$visitor.getId()/edit" class="button center">Edit</a>
-<form action="/visitors/$visitor.getId()/delete" method="post">
-    <input type="submit" value="Delete" class="button center">
-</form>
-<a href="/visitors" class="button center">Back to list</a>
+
+
