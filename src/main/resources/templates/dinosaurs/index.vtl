@@ -3,7 +3,6 @@
 <div class="container">
     <table>
         <tr>
-            <th>Paddock</th>
             <th>Name</th>
             <th>Type</th>
             <th>Eats</th>
@@ -13,7 +12,6 @@
 
         #foreach($dinosaur in $dinosaurs)
         <tr>
-            <td>$dinosaur.getPaddock()</td>
             <td>$dinosaur.getName()</td>
             <td>$dinosaur.getType()</td>
             <td>$dinosaur.getEats()</td>

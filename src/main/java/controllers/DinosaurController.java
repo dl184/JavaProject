@@ -50,7 +50,7 @@ public class DinosaurController {
             String name = req.queryParams("name");
 
             Dinosaur dinosaur = new Dinosaur();
-            DBHelper.save(dinosaur);
+            DBHelper.saveOrUpdate(dinosaur);
             res.redirect("/dinosaurs");
             return null;
         }, new VelocityTemplateEngine());

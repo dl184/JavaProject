@@ -74,7 +74,7 @@ public class PaddockController {
             int wallet = Integer.parseInt(req.queryParams("wallet"));
             int height = Integer.parseInt(req.queryParams("height"));
             Visitor visitor = new Visitor(Name, age, wallet, height);
-            DBHelper.save(visitor);
+            DBHelper.saveOrUpdate(visitor);
             res.redirect("/visitors");
             return null;
         }, new VelocityTemplateEngine());
@@ -99,7 +99,7 @@ public class PaddockController {
 
             paddock.setName(Name);
             paddock.setCapacity(capacity);
-            DBHelper.save(paddock);
+            DBHelper.saveOrUpdate(paddock);
             res.redirect("/paddocks");
             return null;
 
