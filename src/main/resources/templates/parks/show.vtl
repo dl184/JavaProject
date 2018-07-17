@@ -1,6 +1,9 @@
-
-<div>
-    <a href="/paddocks/new" class="button center">New Paddocks</a>
+</table>
+<a href="/paddocks/$paddock.getId()/edit" class="button center">Edit</a>
+<form action="/paddock/$paddock.getId()/delete" method="post">
+    <input type="submit" value="Delete" class="button center">
+</form>
+<a href="/paddocks" class="button center">Back to list</a>
 </div>
 
 <div class="container">
@@ -9,20 +12,13 @@
             <th>Name</th>
             <th>Capacity</th>
             <th>Food</th>
-            <th>Details</th>
         </tr>
 
-        #foreach($paddock in $paddocks)
         <tr>
             <td>$paddock.getName()</td>
             <td>$paddock.getCapacity()</td>
             <td>$paddock.getFood()</td>
-            <td><a href="/paddocks/$paddock.getId()" class="button center">Details</a></td>
-        </tr>
-        #end
-    </table>
+        <tr>
 
 
-
-</div>
 
