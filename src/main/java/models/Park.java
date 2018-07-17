@@ -19,15 +19,15 @@ public class Park {
     private List<Visitor> visitors;
     private String title;
 
-    public Park(String title) {
+    public Park() {
     }
 
     public Park(String name, int till, int capacity) {
         this.name = name;
         this.till = till;
         this.capacity = capacity;
-        this.visitors = new ArrayList<Visitor>();
-        this.dinosaur = new ArrayList<Dinosaur>();
+        this.visitors = new ArrayList<>();
+        this.dinosaur = new ArrayList<>();
     }
 
     @Id

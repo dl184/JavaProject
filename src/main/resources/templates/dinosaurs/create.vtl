@@ -1,36 +1,27 @@
 
 <form action="/dinosaurs" method="post">
 
-
+    <div class="container">
 
     <label for="paddock">Paddock:</label>
     <select id="paddock" type="text" name="paddock">
-        <option value="zone a">Zone A</option>
-        <option value="zone b">Zone B</option>
-        <option value="zone c">Zone C</option>
+        #foreach($paddock in $paddocks)
+            <option value="$paddock.getId()">$paddock.getName()</option>
+        #end
     </select>
 
-    <div class="container">
-
     <label for="dinosaurType">Dinosaur Type:</label>
-        <select id="dinosaurType" type="text" name="dinosaurType">
-            <option value="">Tyrannosaurus Rex</option>
-            <option value="">Velociraptor</option>
-            <option value="">Triceratops</option>
-            <option value="">Stegosaurus</option>
-            <option value="">Diplodocus</option>
-            <option value="">Saurischia</option>
-            <option value="">Brachiosaurus</option>
-            <option value="">Parasaurolophus</option>
-            <option value="">Spinosaurus</option>
-
-        </select>
+    <select id="dinosaurType" type="text" name="type">
+        #foreach($dinosaur in $dinosaurs)
+        <option value="$dinosaur.getType()">$dinosaur.getType()</option>
+        #end
+    </select>
 
 
-    <label for="type">Food Type:</label>
-    <select id="type" type="text" name="type">
-        <option value="herbivore">Herbivore</option>
-        <option value="carnivore">Carnivore</option>
+    <label for="foodType">Diet:</label>
+    <select id="foodType" type="text" name="diet">
+        <option value="Herbivores">Herbivores</option>
+        <option value="Carnivores">Carnivores</option>
     </select>
 
 
@@ -41,7 +32,6 @@
     <input type="text" class="inputBox" name="color" required="true" id="color">
 
     <input type="submit" value="Save" class="button">
-
+    </div>
 </form>
-
 <a href="/dinosaurs" class="button center">Cancel</a>

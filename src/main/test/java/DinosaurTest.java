@@ -22,18 +22,13 @@ public class DinosaurTest {
     }
 
     @Test
-    public void dinosaurHasname(){
-        assertEquals("Tyrannosaurus rex", dinosaur.getName());
-    }
-
-    @Test
     public void dinosaurHasType(){
         assertEquals("Prehistoric Animals", dinosaur.getType());
     }
 
     @Test
     public void dinosaurEats(){
-        assertEquals("Carnivores",dinosaur.getEats());
+        assertEquals("Carnivores",dinosaur.getDiet());
     }
 
     @Test

@@ -6,12 +6,10 @@ import javax.persistence.*;
 @Table(name="dinosaurs")
 public class Dinosaur {
 
-    Paddock paddock;
-
+    private Paddock paddock;
     private int id;
-    private String name;
     private String type;
-    private String eats;
+    private String diet;
     private int height;
     private String color;
     private int healthValue;
@@ -19,11 +17,10 @@ public class Dinosaur {
     public Dinosaur() {
     }
 
-    public Dinosaur(String name, String type, String eats, int height, String color) {
+    public Dinosaur(Paddock paddock, String type, String diet, int height, String color) {
         this.paddock = paddock;
-        this.name = name;
         this.type = type;
-        this.eats = eats;
+        this.diet = diet;
         this.height = height;
         this.color = color;
         this.healthValue = 100;
@@ -52,15 +49,6 @@ public class Dinosaur {
     }
 
 
-    @Column(name="name")
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     @Column(name="type")
     public String getType() {
         return type;
@@ -70,13 +58,13 @@ public class Dinosaur {
         this.type = type;
     }
 
-    @Column(name="eats")
-    public String getEats() {
-        return eats;
+    @Column(name="diet")
+    public String getDiet() {
+        return diet;
     }
 
-    public void setEats(String eats) {
-        this.eats = eats;
+    public void setDiet(String diet) {
+        this.diet = diet;
     }
 
     @Column(name="height")
