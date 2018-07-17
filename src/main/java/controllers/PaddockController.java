@@ -38,7 +38,7 @@ public class PaddockController {
 
         get("/paddocks", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
-            List<Paddock> paddocks = DBHelper.getAll(Visitor.class);
+            List<Paddock> paddocks = DBHelper.getAll(Paddock.class);
             model.put("template", "templates/paddocks/index.vtl");
             model.put("paddocks", paddocks);
             return new ModelAndView(model, "templates/layout.vtl");
@@ -75,7 +75,7 @@ public class PaddockController {
             int height = Integer.parseInt(req.queryParams("height"));
             Visitor visitor = new Visitor(Name, age, wallet, height);
             DBHelper.saveOrUpdate(visitor);
-            res.redirect("/visitors");
+            res.redirect("/paddocks");
             return null;
         }, new VelocityTemplateEngine());
 

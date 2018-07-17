@@ -1,8 +1,16 @@
 <p class="pageHeader">Edit Paddock</p>
 
 <form action="/paddocks/$paddock.getId()" method="post">
+
     <label for="Name">name:</label>
-    <input class="inputbox" type="text" name="name" required="true" value="$paddock.getName()" id="Name">
+    <input class="inputbox" type="text" name="name" required="true"  id="Name">
+
+
+    <label for="Capacity">Capacity:</label>
+    <input type="number" class="inputBox" name="capacity" required="true" id="Capacity">
+
+    <label for="Food">Food:</label>
+    <input type="text" class="inputBox" name="Food" required="true" id="Food">
 
     <input type="submit" value="Save" class="button">
 </form>
