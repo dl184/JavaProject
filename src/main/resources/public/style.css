@@ -63,3 +63,24 @@ tr:hover {background-color: black;}
 font-color: #fffffff;
 }
 
+
+.pageHeader{
+    background-color: green;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    }
+
+.button{
+    background-color: #ff00008f;
+    font-size: 14px;
+    padding: 4px 18px;
+    border-radius: 4px;
+    color: white;
+     }
+
+
