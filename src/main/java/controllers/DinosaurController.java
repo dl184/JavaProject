@@ -48,7 +48,9 @@ public class DinosaurController {
         get("/dinosaurs/new", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             List<Dinosaur> dinosaurs = DBHelper.getAll(Dinosaur.class);
+            List<Paddock> paddocks = DBHelper.getAll(Paddock.class);
             model.put("dinosaurs", dinosaurs);
+            model.put("paddocks", paddocks);
             model.put("template", "templates/dinosaurs/create.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
@@ -67,13 +69,13 @@ public class DinosaurController {
         }, new VelocityTemplateEngine());
 
         post ("/dinosaurs", (req, res) -> {
-            String paddock = req.queryParams("paddock");
-            String name = req.queryParams("name");
+            int paddock_id = Integer.parseInt(req.queryParams("paddock"));
+            Paddock paddock = DBHelper.find(paddock_id, Paddock.class);
             String type = req.queryParams("type");
-            String eats = req.queryParams("eats");
+            String diet = req.queryParams("diet");
             int height = Integer.parseInt(req.queryParams("height"));
             String color = req.queryParams("color");
-            Dinosaur dinosaur = new Dinosaur(name,type,eats,height,color);
+            Dinosaur dinosaur = new Dinosaur(paddock,type,diet,height,color);
             DBHelper.saveOrUpdate(dinosaur);
             res.redirect("/dinosaurs");
             return null;
@@ -91,16 +93,14 @@ public class DinosaurController {
             String strId = req.params(":id");
             Integer intId = Integer.parseInt(strId);
             Dinosaur dinosaur = DBHelper.find(intId, Dinosaur.class);
-            String Name = req.queryParams("Name");
-            String Type = req.queryParams("Type");
-            String Eats = req.queryParams("Eats");
+            String type = req.queryParams("type");
+            String diet = req.queryParams("diet");
             int height = Integer.parseInt(req.queryParams("height"));
             String color = req.queryParams("Color");
 
-            dinosaur.setName(Name);
-            dinosaur.setType(Type);
+            dinosaur.setType(type);
             dinosaur.setHeight(height);
-            dinosaur.setEats(Eats);
+            dinosaur.setDiet(diet);
             dinosaur.setColor(color);
             DBHelper.saveOrUpdate(dinosaur);
             res.redirect("/dinosaurs");

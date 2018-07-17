@@ -23,7 +23,7 @@ public class Paddock implements ITicketed {
         this.name = name;
         this.capacity = capacity;
         this.food = food;
-        this.dinosaurs = new ArrayList<Dinosaur>();
+        this.dinosaurs = new ArrayList<>();
     }
 
     @Id

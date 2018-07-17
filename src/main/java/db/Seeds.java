@@ -7,6 +7,12 @@ public class Seeds {
 
     public static void seedData() {
 
+        DBHelper.deleteAll(DinosaurFood.class);
+        DBHelper.deleteAll(Paddock.class);
+        DBHelper.deleteAll(Dinosaur.class);
+        DBHelper.deleteAll(Park.class);
+        DBHelper.deleteAll(Visitor.class);
+
         Paddock paddock1 = new Paddock("Trex Cell",4, DinosaurFood.PLANTS);
         DBHelper.saveOrUpdate(paddock1);
 
@@ -16,13 +22,13 @@ public class Seeds {
         Paddock paddock3 = new Paddock("BarneyCell", 20, DinosaurFood.COW);
         DBHelper.saveOrUpdate(paddock3);
 
-        Dinosaur dinosaur1 = new Dinosaur("Tyrannosaurus rex", "Prehistoric Animals","Carnivores",609,"Green");
+        Dinosaur dinosaur1 = new Dinosaur(paddock1, "Prehistoric Animals","Carnivores",609,"Green");
         DBHelper.saveOrUpdate(dinosaur1);
 
-        Dinosaur dinosaur2 = new Dinosaur("Velociraptor","Raptors","Carnivores", 182,"Red");
+        Dinosaur dinosaur2 = new Dinosaur(paddock2,"Raptors","Carnivores", 182,"Red");
         DBHelper.saveOrUpdate(dinosaur2);
 
-        Dinosaur dinosaur3 = new Dinosaur( "Barney","Tyrannosaurus rex","Herbivores", 152,"Purple");
+        Dinosaur dinosaur3 = new Dinosaur( paddock3,"Tyrannosaurus rex","Herbivores", 152,"Purple");
         dinosaur3.setHealthValue(40);
         DBHelper.saveOrUpdate(dinosaur3);
 
