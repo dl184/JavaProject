@@ -1,8 +1,6 @@
 package models;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name="dinosaurs")
@@ -18,7 +16,7 @@ public class Dinosaur {
     private String color;
     private int healthValue;
 
-    public Dinosaur() {
+    public Dinosaur(String name, String type, String eats, int height, String color) {
     }
 
     public Dinosaur(Paddock paddock, String name, String type, String eats, int height, String color) {

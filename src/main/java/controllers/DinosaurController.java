@@ -30,14 +30,6 @@ public class DinosaurController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
-//        get("/templates/dinosaurs", (req, res) -> {
-//            Map<String, Object> model = new HashMap<>();
-//            List<Dinosaur> dinosaurs = DBHelper.getAll(Dinosaur.class);
-//            model.put("template", "templates/dinosaurs/index.vtl");
-//            model.put("dinosaurs", dinosaurs);
-//            return new ModelAndView(model, "templates/layout.vtl");
-//        }, new VelocityTemplateEngine());
-
         get("/dinosaurs/new", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             List<Dinosaur> dinosaurs = DBHelper.getAll(Dinosaur.class);
@@ -46,28 +38,60 @@ public class DinosaurController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
-        post("/dinosaurs", (req, res) -> {
-            String name = req.queryParams("name");
+        get("/dinosaurs/:id", (req, res) -> {
+            String strId = req.params(":id");
+            Integer intId = Integer.parseInt(strId);
+            Dinosaur dinosaur = DBHelper.find(intId, Dinosaur.class);
 
-            Dinosaur dinosaur = new Dinosaur();
+            Map<String, Object> model = new HashMap<>();
+
+            model.put("dinosaur", dinosaur);
+            model.put("template", "templates/dinosaurs/show.vtl");
+
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, new VelocityTemplateEngine());
+
+        post ("/dinosaurs", (req, res) -> {
+            int dinosaurId = Integer.parseInt(req.queryParams("dinosaur"));
+            Dinosaur dinosaur = DBHelper.find(dinosaurId, Dinosaur.class);
+            String Name = req.queryParams("Name");
+            String Type = req.queryParams("Type");
+            String Eats = req.queryParams("Eats");
+            int height = Integer.parseInt(req.queryParams("height"));
+            String color = req.queryParams("Color");
+            Dinosaur dinosaur1 = new Dinosaur(Name, Type, Eats, height,color);
             DBHelper.saveOrUpdate(dinosaur);
             res.redirect("/dinosaurs");
             return null;
         }, new VelocityTemplateEngine());
 
-//        post("/dinosaurs/:id/delete", (req, res) -> {
-//            int id = Integer.parseInt(req.params(":id"));
-//            Park visitorToDelete = DBHelper.find(Visitor.class, id);
-//            DBHelper.delete(visitorToDelete);
-//            res.redirect("/dinosaurs");
-//            return null;
-//        }, new VelocityTemplateEngine());
-//
-//    }
+        post ("/dinosaurs/:id/delete", (req, res) -> {
+            int id = Integer.parseInt(req.params(":id"));
+            Dinosaur dinosaurToDelete = DBHelper.find(id, Dinosaur.class);
+            DBHelper.delete(dinosaurToDelete);
+            res.redirect("/dinosaurs");
+            return null;
+        }, new VelocityTemplateEngine());
 
+        post ("/dinosaurs/:id", (req, res) -> {
+            String strId = req.params(":id");
+            Integer intId = Integer.parseInt(strId);
+            Dinosaur dinosaur = DBHelper.find(intId, Dinosaur.class);
+            String Name = req.queryParams("Name");
+            String Type = req.queryParams("Type");
+            String Eats = req.queryParams("Eats");
+            int height = Integer.parseInt(req.queryParams("height"));
+            String color = req.queryParams("Color");
+
+            dinosaur.setName(Name);
+            dinosaur.setType(Type);
+            dinosaur.setHeight(height);
+            dinosaur.setEats(Eats);
+            dinosaur.setColor(color);
+            DBHelper.saveOrUpdate(dinosaur);
+            res.redirect("/dinosaurs");
+            return null;
+
+        }, new VelocityTemplateEngine());
     }
 }
-
-
-
-
