@@ -16,11 +16,26 @@ import static spark.Spark.get;
 import static spark.Spark.post;
 
 public class DinosaurController {
+
     public DinosaurController() {
+
         this.setupEndpoints();
     }
 
     private void setupEndpoints() {
+
+        get("/dinosaurs/:id/edit", (req, res) -> {
+            String strId = req.params(":id");
+            Integer intId = Integer.parseInt(strId);
+            Dinosaur dinosaur = DBHelper.find(intId, Dinosaur.class);
+            List<Dinosaur> dinosaurs = DBHelper.getAll(Dinosaur.class);
+            Map<String, Object> model = new HashMap<>();
+            model.put("dinosaur", dinosaur);
+            model.put("dinosaurs", dinosaurs);
+            model.put("template", "templates/dinosaurs/edit.vtl");
+
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, new VelocityTemplateEngine());
 
         get("/dinosaurs", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
@@ -45,7 +60,7 @@ public class DinosaurController {
 
             Map<String, Object> model = new HashMap<>();
 
-            model.put("dinosaurs", dinosaur);
+            model.put("dinosaur", dinosaur);
             model.put("template", "templates/dinosaurs/show.vtl");
 
             return new ModelAndView(model, "templates/layout.vtl");
