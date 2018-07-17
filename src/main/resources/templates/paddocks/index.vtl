@@ -5,12 +5,15 @@
         <tr>
             <th>Name</th>
             <th>Capacity</th>
+            <th>Food</th>
+            <th>Details</th>
         </tr>
 
         #foreach($paddock in $paddocks)
         <tr>
             <td>$paddock.getName()</td>
             <td>$paddock.getCapacity()</td>
+            <td>$paddock.getFood()</td>
             <td><a href="/paddocks/$paddock.getId()" class="button center">Details</a></td>
         </tr>
         #end
