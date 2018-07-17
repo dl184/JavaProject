@@ -1,0 +1,32 @@
+<a href="/dinosaurs/$dinosaur.getId()/edit" class="button center">Edit</a>
+<form action="/dinosaurs/$dinosaur.getId()/delete" method="post">
+    <input type="submit" value="Delete" class="button center">
+</form>
+<a href="/dinosaurs" class="button center">Back to list</a>
+</div>
+
+    #if ($paddock)
+    <p> Paddock: $paddock.getName() $paddock.getCapacity() </p>
+    #end
+</div>
+
+
+<div class="container">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Eats</th>
+            <th>Height</th>
+            <th>Color</th>
+        </tr>
+        <tr>
+            <td>$dinosaur.getName()</td>
+            <td>$dinosaur.getType()</td>
+            <td>$dinosaur.getEats()</td>
+            <td>$dinosaur.getHeight()</td>
+            <td>$dinosaur.getColor()</td>
+        <tr>
+    </table>
+
+

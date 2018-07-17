@@ -1,4 +1,7 @@
-<p class="pageHeader">All Visitors</p>
+
+<div>
+    <a href="/visitors/new" class="button center">New Visitors</a>
+</div>
 
 <div class="container">
     <table>
@@ -7,20 +10,20 @@
         <th>Wallet</th>
         <th>Age</th>
         <th>Height</th>
-        </tr>
+            <th>Details</th>
 
         #foreach($visitor in $visitors)
         <tr>
             <td>$visitor.getName()</td>
             <td>$visitor.getWallet()</td>
             <td>$visitor.getAge()</td>
-            <td>$visitor.getHeight</td>
+            <td>$visitor.getHeight()</td>
+            <td><a href="/visitors/$visitor.getId()" class="table">Details</a></td>
         </tr>
         #end
     </table>
 
-
-
 </div>
+
 
 

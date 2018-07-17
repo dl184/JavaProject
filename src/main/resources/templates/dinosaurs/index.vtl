@@ -1,9 +1,11 @@
-<p class="pageHeader">All Dinosaur</p>
+
+<div>
+    <a href="/dinosaurs/new" class="button center">New Dinosaur</a>
+</div>
 
 <div class="container">
     <table>
         <tr>
-            <th>Paddock</th>
             <th>Name</th>
             <th>Type</th>
             <th>Eats</th>
@@ -13,12 +15,12 @@
 
         #foreach($dinosaur in $dinosaurs)
         <tr>
-            <td>$dinosaur.getPaddock</td>
             <td>$dinosaur.getName()</td>
             <td>$dinosaur.getType()</td>
             <td>$dinosaur.getEats()</td>
-            <td>$dinosaur.getHeight</td>
-            <td>$dinosaur.getColor</td>
+            <td>$dinosaur.getHeight()</td>
+            <td>$dinosaur.getColor()</td>
+            <td><a href="/dinosaurs/$dinosaur.getId()" class="button center">Details</a></td>
         </tr>
         #end
     </table>

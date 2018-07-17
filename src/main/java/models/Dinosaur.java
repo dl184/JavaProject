@@ -1,8 +1,6 @@
 package models;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name="dinosaurs")
@@ -21,14 +19,14 @@ public class Dinosaur {
     public Dinosaur() {
     }
 
-    public Dinosaur(Paddock paddock, String name, String type, String eats, int height, String color, int healthValue) {
+    public Dinosaur(String name, String type, String eats, int height, String color) {
         this.paddock = paddock;
         this.name = name;
         this.type = type;
         this.eats = eats;
         this.height = height;
         this.color = color;
-        this.healthValue = healthValue;
+        this.healthValue = 100;
     }
 
 
@@ -43,16 +41,6 @@ public class Dinosaur {
         this.id = id;
     }
 
-    @Column(name="name")
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-
     @ManyToOne
     @JoinColumn(name="paddock_id", nullable=true)
     public Paddock getPaddock() {
@@ -61,6 +49,16 @@ public class Dinosaur {
 
     public void setPaddock(Paddock paddock) {
         this.paddock = paddock;
+    }
+
+
+    @Column(name="name")
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Column(name="type")
