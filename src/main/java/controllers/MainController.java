@@ -22,6 +22,7 @@ public class MainController {
         ParkController parkController = new ParkController();
         PaddockController paddockController1 = new PaddockController();
         VisitorController visitorController = new VisitorController();
+        EmergencyController emergencyController = new EmergencyController();
 
         get("/home", (req, res) -> {
             Map<String, Object> model = new HashMap<>();

@@ -39,6 +39,20 @@ h1{
 
     }
 
+.main_button1{
+    background-color: red;
+        border: none;
+        color: white;
+        padding: 32px 16px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 40px;
+        border-radius: 50%;
+        width: 200px;
+        padding: 45px;
+
+    }
 .main_button:hover {
                 background-color: red;
                 color: white;
