@@ -45,8 +45,8 @@ public class ParkController {
         get ("/parks/new", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             List<Park> parks = DBHelper.getAll(Park.class);
-            model.put("park", parks);
-            model.put("template", "templates/park/create.vtl");
+            model.put("parks", parks);
+            model.put("template", "templates/parks/create.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
@@ -60,7 +60,7 @@ public class ParkController {
             Map<String, Object> model = new HashMap<>();
 
             model.put("park", parks);
-            model.put("template", "templates/park/show.vtl");
+            model.put("template", "templates/parks/show.vtl");
 
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
@@ -73,6 +73,17 @@ public class ParkController {
             res.redirect("/parks");
             return null;
         }, new VelocityTemplateEngine());
+
+        post ("/parks", (req, res) -> {
+            String name = req.queryParams("name");
+            int wallet = Integer.parseInt(req.queryParams("wallet"));
+            int age =  Integer.parseInt(req.queryParams("age"));
+            Park park = new Park(name, wallet, age);
+            DBHelper.saveOrUpdate(park);
+            res.redirect("/parks");
+            return null;
+        }, new VelocityTemplateEngine());
+
 
         post ("/parks/:id", (req, res) -> {
             String strId = req.params(":id");

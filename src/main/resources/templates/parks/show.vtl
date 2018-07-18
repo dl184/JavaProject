@@ -1,9 +1,9 @@
 </table>
-<a href="/paddocks/$paddock.getId()/edit" class="button center">Edit</a>
-<form action="/paddock/$paddock.getId()/delete" method="post">
+<a href="/parks/$park.getId()/edit" class="button center">Edit</a>
+<form action="/parks/$park.getId()/delete" method="post">
     <input type="submit" value="Delete" class="button center">
 </form>
-<a href="/paddocks" class="button center">Back to list</a>
+<a href="/parks" class="button center">Back to list</a>
 </div>
 
 <div class="container">
@@ -11,14 +11,17 @@
         <tr>
             <th>Name</th>
             <th>Capacity</th>
-            <th>Food</th>
+            <th>till</th>
         </tr>
 
         <tr>
-            <td>$paddock.getName()</td>
-            <td>$paddock.getCapacity()</td>
-            <td>$paddock.getFood()</td>
+            <td>$park.getName()</td>
+            <td>$park.getCapacity()</td>
+            <td>$park.getTill()</td>
         <tr>
 
 
 
+</tr>
+    </table>
+</div>

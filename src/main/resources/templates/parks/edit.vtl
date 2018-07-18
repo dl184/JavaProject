@@ -1,7 +1,13 @@
 
 <form action="/parks/$park.getId()" method="post">
+    <label for="name">name:</label>
+    <input class="inputbox" type="text" name="name" required="true" value="$park.getName()" id="name">
+
+    <label for="till">name:</label>
+    <input class="inputbox" type="text" name="till" required="true" id="till">
+
     <label for="Name">name:</label>
-    <input class="inputbox" type="text" name="name" required="true" value="$park.getName()" id="Name">
+    <input class="inputbox" type="text" name="name" required="true" id="Name">
 
     <input type="submit" value="Save" class="button">
 </form>
