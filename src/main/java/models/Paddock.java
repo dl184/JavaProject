@@ -11,6 +11,7 @@ import java.util.List;
 public class Paddock implements ITicketed {
 
     private int id;
+    private String emergency;
     private String name;
     private int capacity;
     private DinosaurFood food;
@@ -81,4 +82,11 @@ public class Paddock implements ITicketed {
         return 20.50;
     }
 
+    public String getEmergency() {
+        return emergency;
+    }
+
+    public void setEmergency(String emergency) {
+        this.emergency = emergency;
+    }
 }
