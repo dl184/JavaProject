@@ -59,7 +59,7 @@ public class PaddockController {
 
             Map<String, Object> model = new HashMap<>();
 
-            model.put("paddock", paddock);
+            model.put("paddocks", paddock);
             model.put("template", "templates/paddocks/show.vtl");
 
             return new ModelAndView(model, "templates/layout.vtl");
@@ -68,7 +68,6 @@ public class PaddockController {
         post ("/paddocks", (req, res) -> {
             String name = req.queryParams("name");
             int capacity = Integer.parseInt(req.queryParams("Capacity"));
-            String food = req.queryParams("food");
             Paddock paddock = new Paddock(name, capacity, DinosaurFood.COW);
             DBHelper.saveOrUpdate(paddock);
             res.redirect("/paddocks");

@@ -59,7 +59,7 @@ public class ParkController {
 
             Map<String, Object> model = new HashMap<>();
 
-            model.put("parks", parks);
+            model.put("park", parks);
             model.put("template", "templates/park/show.vtl");
 
             return new ModelAndView(model, "templates/layout.vtl");
@@ -70,7 +70,7 @@ public class ParkController {
             int id = Integer.parseInt(req.params(":id"));
             Visitor visitorToDelete = DBHelper.find(id, Visitor.class);
             DBHelper.delete(visitorToDelete);
-            res.redirect("/visitors");
+            res.redirect("/parks");
             return null;
         }, new VelocityTemplateEngine());
 
