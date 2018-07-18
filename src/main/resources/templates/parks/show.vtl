@@ -1,0 +1,27 @@
+</table>
+<a href="/parks/$park.getId()/edit" class="button center">Edit</a>
+<form action="/parks/$park.getId()/delete" method="post">
+    <input type="submit" value="Delete" class="button center">
+</form>
+<a href="/parks" class="button center">Back to list</a>
+</div>
+
+<div class="container">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Capacity</th>
+            <th>till</th>
+        </tr>
+
+        <tr>
+            <td>$park.getName()</td>
+            <td>$park.getCapacity()</td>
+            <td>$park.getTill()</td>
+        <tr>
+
+
+
+</tr>
+    </table>
+</div>

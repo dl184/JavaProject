@@ -1,17 +1,26 @@
 
+<div>
+    <a href="/parks/new" class="button center">New Attractions</a>
+</div>
+
 <div class="container">
     <table>
         <tr>
             <th>Name</th>
-            <th>Till</th>
             <th>Capacity</th>
+            <th>Age</th>
+            <th>Details</th>
+            <th>EMERGENCY BUTTON</th>
         </tr>
 
         #foreach($park in $parks)
         <tr>
             <td>$park.getName()</td>
-            <td>$park.getTill()</td>
             <td>$park.getCapacity()</td>
+            <td>$park.getTill()</td>
+            <td><a href="/parks/$park.getId()" class="button center">Details</a></td>
+            <td><a href="/parks/$park.getId()" class="button center">IN CASE OF EMERGENCY PRESS BUTTON </a></td>
+
         </tr>
         #end
     </table>
@@ -19,3 +28,4 @@
 
 
 </div>
+

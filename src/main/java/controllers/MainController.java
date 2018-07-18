@@ -19,7 +19,7 @@ public class MainController {
         staticFileLocation("/public");
 
         DinosaurController dinosaurController = new DinosaurController();
-//        ParkController parkController = new ParkController();
+        ParkController parkController = new ParkController();
         PaddockController paddockController1 = new PaddockController();
         VisitorController visitorController = new VisitorController();
 
