@@ -78,7 +78,8 @@ public class PaddockController {
         post ("/paddocks", (req, res) -> {
             String name = req.queryParams("name");
             int capacity = Integer.parseInt(req.queryParams("capacity"));
-            Paddock paddock = new Paddock(name, capacity, DinosaurFood.COW);
+            DinosaurFood food = DinosaurFood.valueOf("food");
+            Paddock paddock = new Paddock(name, capacity, food);
             DBHelper.saveOrUpdate(paddock);
             res.redirect("/paddocks");
             return null;
@@ -102,7 +103,7 @@ public class PaddockController {
 
             paddock.setName(Name);
             paddock.setCapacity(capacity);
-            paddock.setFood(DinosaurFood.PLANTS);
+            paddock.setFood(DinosaurFood.valueOf(food));
             DBHelper.saveOrUpdate(paddock);
             res.redirect("/paddocks");
             return null;
