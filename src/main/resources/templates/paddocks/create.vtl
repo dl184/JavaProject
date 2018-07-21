@@ -23,19 +23,18 @@
 
     </select>
 
-    <label for="food">Diet Type:</label>
-    <input type="text" class="inputBox" name="food" required="true" id="food">
+    <!--<label for="food">Diet Type:</label>-->
+    <!--<input type="text" class="inputBox" name="food" required="true" id="food">-->
 
-        <!--<label for="food">Food:</label>-->
-        <!--<select id="food" type="text" name="food">-->
-        <!--<option value="COW">COW</option>-->
-        <!--<option value="GOAT">GOAT</option>-->
-        <!--<option value="PLANTS">PLANTS</option>-->
-        <!--<option value="HUMANS">HUMANS</option>-->
-        <!--<input type="submit" value="Save" class="button">-->
-        <!--</select>-->
-
+        <label for="food">Food:</label>
+        <select id="food" type="text" name="food">
+            #foreach($food in $foodTypes)
+            <option value="DinosaurFood.COW">COW</option>
+            <option value="DinosaurFood.GOAT">GOAT</option>
+            <option value="DinosaurFood.PLANTS">PLANTS</option>
+            #end
         <input type="submit" value="Save" class="button">
+
 
     </div>
 </form>
