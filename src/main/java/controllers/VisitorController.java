@@ -1,9 +1,7 @@
 package controllers;
 
 import db.DBHelper;
-import models.DinosaurFood;
 import models.Paddock;
-import models.Park;
 import models.Visitor;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
@@ -31,7 +29,7 @@ public class VisitorController {
 
             Map<String, Object> model = new HashMap<>();
             model.put("visitor", visitor);
-            model.put("template", "templates/visitors/edit.vtl");
+            model.put("template", "visitors/edit.vtl");
             model.put("paddock", paddocks);
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
@@ -39,7 +37,7 @@ public class VisitorController {
         get("/visitors", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             List<Visitor> visitors = DBHelper.getAll(Visitor.class);
-            model.put("template", "templates/visitors/index.vtl");
+            model.put("template", "visitors/index.vtl");
             model.put("visitors", visitors);
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
@@ -48,7 +46,7 @@ public class VisitorController {
             Map<String, Object> model = new HashMap<>();
             List<Paddock> paddocks = DBHelper.getAll(Paddock.class);
             model.put("paddock", paddocks);
-            model.put("template", "templates/visitors/create.vtl");
+            model.put("template", "visitors/create.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
@@ -63,7 +61,7 @@ public class VisitorController {
 
             model.put("visitor", visitor);
             model.put("paddock", paddocks);
-            model.put("template", "templates/visitors/show.vtl");
+            model.put("template", "visitors/show.vtl");
 
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
