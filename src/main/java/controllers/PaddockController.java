@@ -25,8 +25,9 @@ public class PaddockController {
             Integer intId = Integer.parseInt(strId);
             Paddock paddock = DBHelper.find(intId, Paddock.class);
             List<Paddock> paddocks = DBHelper.getAll(Paddock.class);
-
+            DinosaurFood [] foodTypes = DinosaurFood.values();
             Map<String, Object> model = new HashMap<>();
+            model.put("foodTypes", foodTypes);
             model.put("paddock", paddock);
             model.put("paddocks", paddocks);
             model.put("template", "templates/paddocks/edit.vtl");
@@ -56,8 +57,8 @@ public class PaddockController {
             Map<String, Object> model = new HashMap<>();
             List<Paddock> paddocks = DBHelper.getAll(Paddock.class);
             DinosaurFood [] foodTypes = DinosaurFood.values();
+            model.put("foodTypes", foodTypes);
             model.put("paddocks", paddocks);
-            model.put("dinoFoods", dinoFoods);
             model.put("template", "templates/paddocks/create.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
@@ -80,11 +81,6 @@ public class PaddockController {
         post ("/paddocks", (req, res) -> {
             String name = req.queryParams("name");
             int capacity = Integer.parseInt(req.queryParams("capacity"));
-
-            String dinosaurFoodString = req.queryParams("diet");
-            DinosaurFood dinosaurFood = DinosaurFood.valueOf(dinosaurFoodString);
-            Paddock paddock = new Paddock(name, capacity, dinosaurFood);
-
             DinosaurFood food = DinosaurFood.valueOf(req.queryParams("food"));
             Paddock paddock = new Paddock(name, capacity, food);
             DBHelper.saveOrUpdate(paddock);

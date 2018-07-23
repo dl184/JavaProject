@@ -16,7 +16,6 @@
         <mapping class = "models.Paddock"/>
         <mapping class = "models.Park"/>
         <mapping class = "models.Visitor"/>
-        <mapping class = "models.DinosaurFood"/>
         <mapping class = "models.Emergency"/>
 
 
