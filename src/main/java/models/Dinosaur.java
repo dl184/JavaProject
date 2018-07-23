@@ -27,13 +27,13 @@ public class Dinosaur {
         this.height = height;
         this.color = color;
         this.healthValue = 100;
-        this.belly = new ArrayList<>() ;
+        this.belly = new ArrayList<>();
     }
 
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Column(name="id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     public int getId() {
         return id;
     }
@@ -44,7 +44,7 @@ public class Dinosaur {
 
 
     @ManyToOne
-    @JoinColumn(name="paddock_id", nullable=true)
+    @JoinColumn(name = "paddock_id", nullable = true)
     public Paddock getPaddock() {
         return paddock;
     }
@@ -54,7 +54,7 @@ public class Dinosaur {
     }
 
 
-    @Column(name="type")
+    @Column(name = "type")
     public String getType() {
         return type;
     }
@@ -63,7 +63,7 @@ public class Dinosaur {
         this.type = type;
     }
 
-    @Column(name="diet")
+    @Column(name = "diet")
     public String getDiet() {
         return diet;
     }
@@ -72,7 +72,7 @@ public class Dinosaur {
         this.diet = diet;
     }
 
-    @Column(name="height")
+    @Column(name = "height")
     public int getHeight() {
         return height;
     }
@@ -81,7 +81,7 @@ public class Dinosaur {
         this.height = height;
     }
 
-    @Column(name="color")
+    @Column(name = "color")
     public String getColor() {
         return color;
     }
@@ -90,7 +90,7 @@ public class Dinosaur {
         this.color = color;
     }
 
-    @Column(name="healthvalue")
+    @Column(name = "healthvalue")
     public int getHealthValue() {
         return healthValue;
     }
@@ -100,7 +100,7 @@ public class Dinosaur {
     }
 
     @ElementCollection
-    @Enumerated(value=EnumType.STRING)
+    @Enumerated(value = EnumType.STRING)
     public List<DinosaurFood> getBelly() {
         return belly;
     }
@@ -109,7 +109,7 @@ public class Dinosaur {
         this.belly = belly;
     }
 
-    public void feedDinosaur(DinosaurFood dinosaurFood){
+    public void feedDinosaur(DinosaurFood dinosaurFood) {
         belly.add(dinosaurFood);
     }
 
@@ -119,5 +119,6 @@ public class Dinosaur {
         }
         return "IM LOVELY AND FULL UP";
     }
+
 }
 

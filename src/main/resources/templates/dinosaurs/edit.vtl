@@ -1,21 +1,37 @@
 
+<form action="/dinosaurs" method="post">
 
-<form action="/dinosaurs/$dinosaur.getId()" method="post">
-    <label for="name">name:</label>
-    <input class="inputBox" type="text" name="name" required="true"  id="name">
+    <div class="container">
 
-    <label for="type">type:</label>
-    <input class="inputBox" type="text" name="type" required="true" id="type">
+        <label for="paddock">Paddock:</label>
+        <select id="paddock" type="text" name="paddock">
+            #foreach($paddock in $paddocks)
+            <option value="$paddock.getId()">$paddock.getName()</option>
+            #end
+        </select>
 
-    <label for="diet">diet:</label>
-    <input class="inputBox" type="text" name="diet" required="true"  id="diet">
+        <label for="dinosaurType">Dinosaur Type:</label>
+        <select id="dinosaurType" type="text" name="type">
+            #foreach($dinosaur in $dinosaurs)
+            <option value="$dinosaur.getType()">$dinosaur.getType()</option>
+            #end
+        </select>
 
-    <label for="height">height:</label>
-    <input class="inputBox" type="number" name="height" required="true"  id="height">
 
-    <label for="color">color:</label>
-    <input class="inputBox" type="text" name="color" required="true" id="color">
+        <label for="foodType">Diet Type:</label>
+        <select id="foodType" type="text" name="diet">
+            <option value="Herbivores">Herbivores</option>
+            <option value="Carnivores">Carnivores</option>
+        </select>
 
-    <input type="submit" value="Save" class="button">
+
+        <label for="height">Height(cm):</label>
+        <input type="number" class="inputBox" name="height" required="true" id="height">
+
+        <label for="color">Color:</label>
+        <input type="text" class="inputBox" name="color" required="true" id="color">
+
+        <input type="submit" value="Save" class="button">
+    </div>
 </form>
-<a href="/dinosaurs/$dinosaur.getId()" class="button center">Cancel</a>
+<a href="/dinosaurs" class="button center">Cancel</a>
