@@ -6,16 +6,14 @@
         <label for="paddock">Paddock:</label>
         <select id="paddock" type="text" name="paddock">
             #foreach($paddock in $paddocks)
-            <option value="$paddock.getId()">$paddock.getName()</option>
+                #if($paddock.getType() == $dinosaur.getDiet())
+                    <option value="$paddock.getId()">$paddock.getName()</option>
+                #end
             #end
         </select>
 
         <label for="dinosaurType">Dinosaur Type:</label>
-        <select id="dinosaurType" type="text" name="type">
-            #foreach($dinosaur in $dinosaurs)
-            <option value="$dinosaur.getType()">$dinosaur.getType()</option>
-            #end
-        </select>
+        <input id="dinosaurType" type="text" name="$dinosaur" value="$dinosaur.getType()" disabled>
 
 
         <label for="foodType">Diet Type:</label>
@@ -26,10 +24,10 @@
 
 
         <label for="height">Height(cm):</label>
-        <input type="number" class="inputBox" name="height" required="true" id="height">
+        <input type="number" class="inputBox" name="height" required="true" id="height" value="$dinosaur.getHeight()">
 
         <label for="color">Color:</label>
-        <input type="text" class="inputBox" name="color" required="true" id="color">
+        <input type="text" class="inputBox" name="color" required="true" id="color" value="$dinosaur.getColor()">
 
         <input type="submit" value="Save" class="button">
     </div>

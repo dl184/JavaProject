@@ -6,20 +6,22 @@
 <div class="container">
     <table>
         <tr>
-            <th>Paddock</th>
             <th>Dinosaur Type</th>
+            <th>Paddock</th>
             <th>Diet Type</th>
             <th>Height(cm)</th>
             <th>Color</th>
+            <th>Hunger Level</th>
         </tr>
 
         #foreach($dinosaur in $dinosaurs)
         <tr>
-            <td>$dinosaur.getPaddock().getName()</td>
             <td>$dinosaur.getType()</td>
+            <td>$dinosaur.getPaddock().getName()</td>
             <td>$dinosaur.getDiet()</td>
             <td>$dinosaur.getHeight()</td>
             <td>$dinosaur.getColor()</td>
+            <td>$dinosaur.hungerLevel()</td>
             <td><a href="/dinosaurs/$dinosaur.getId()" class="button center">Details</a></td>
         </tr>
         #end

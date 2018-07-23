@@ -29,10 +29,10 @@ public class DinosaurController {
             String strId = req.params(":id");
             Integer intId = Integer.parseInt(strId);
             Dinosaur dinosaur = DBHelper.find(intId, Dinosaur.class);
-            List<Dinosaur> dinosaurs = DBHelper.getAll(Dinosaur.class);
+            List<Paddock> paddocks = DBHelper.getAll(Paddock.class);
             Map<String, Object> model = new HashMap<>();
             model.put("dinosaur", dinosaur);
-            model.put("dinosaurs", dinosaurs);
+            model.put("paddocks", paddocks);
             model.put("template", "templates/dinosaurs/edit.vtl");
 
             return new ModelAndView(model, "templates/layout.vtl");

@@ -14,18 +14,25 @@
 <div class="container">
     <table>
         <tr>
-            <th>Paddock</th>
             <th>Dinosaur Type</th>
+            <th>Paddock</th>
             <th>Food Type</th>
             <th>Height(cm)</th>
             <th>Color</th>
+            <th>Hunger Level</th>
         </tr>
         <tr>
-            <td>$dinosaur.getPaddock().getName()</td>
             <td>$dinosaur.getType()</td>
+            <td>$dinosaur.getPaddock().getName()</td>
             <td>$dinosaur.getPaddock().getFood()</td>
             <td>$dinosaur.getHeight()</td>
             <td>$dinosaur.getColor()</td>
+            <td>$dinosaur.hungerLevel()</td>
+            <td>
+                <form action ="/dinosaurs/$dinosaur.getId()" method="post">
+                    <input type="submit" value="Feed Dinosaur"/>
+                </form>
+            </td>
         <tr>
     </table>
 
