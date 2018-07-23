@@ -7,7 +7,7 @@ public class Seeds {
 
     public static void seedData() {
 
-        DBHelper.deleteAll(DinosaurFood.class);
+//        DBHelper.deleteAll(DinosaurFood.class);
         DBHelper.deleteAll(Paddock.class);
         DBHelper.deleteAll(Dinosaur.class);
         DBHelper.deleteAll(Park.class);

@@ -1,6 +1,8 @@
 package models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="dinosaurs")
@@ -13,6 +15,7 @@ public class Dinosaur {
     private int height;
     private String color;
     private int healthValue;
+    private List<DinosaurFood> belly;
 
     public Dinosaur() {
     }
@@ -24,6 +27,7 @@ public class Dinosaur {
         this.height = height;
         this.color = color;
         this.healthValue = 100;
+        this.belly = new ArrayList<>() ;
     }
 
 
@@ -37,6 +41,7 @@ public class Dinosaur {
     public void setId(int id) {
         this.id = id;
     }
+
 
     @ManyToOne
     @JoinColumn(name="paddock_id", nullable=true)
@@ -94,12 +99,25 @@ public class Dinosaur {
         this.healthValue = healthValue;
     }
 
+    @ElementCollection
+    @Enumerated(value=EnumType.STRING)
+    public List<DinosaurFood> getBelly() {
+        return belly;
+    }
+
+    public void setBelly(List<DinosaurFood> belly) {
+        this.belly = belly;
+    }
+
+    public void feedDinosaur(DinosaurFood dinosaurFood){
+        belly.add(dinosaurFood);
+    }
+
     public String dinosaurRampage() {
-        if (this.getHealthValue() < 25) {
+        if (this.getHealthValue() < 26) {
             return "ROARRRR I'M HUNGRY";
         }
         return "IM LOVELY AND FULL UP";
     }
-
 }
 
