@@ -55,7 +55,8 @@ public class PaddockController {
         get ("/paddocks/new", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             List<Paddock> paddocks = DBHelper.getAll(Paddock.class);
-            List<DinosaurFood> dinoFoods = DBHelper.getAll(DinosaurFood.class);
+            DinosaurFood [] foodTypes = DinosaurFood.values();
+
             model.put("paddocks", paddocks);
             model.put("dinoFoods", dinoFoods);
             model.put("template", "templates/paddocks/create.vtl");
@@ -80,9 +81,13 @@ public class PaddockController {
         post ("/paddocks", (req, res) -> {
             String name = req.queryParams("name");
             int capacity = Integer.parseInt(req.queryParams("capacity"));
+
             String dinosaurFoodString = req.queryParams("diet");
             DinosaurFood dinosaurFood = DinosaurFood.valueOf(dinosaurFoodString);
             Paddock paddock = new Paddock(name, capacity, dinosaurFood);
+
+            DinosaurFood food = DinosaurFood.valueOf(req.queryParams("food"));
+            Paddock paddock = new Paddock(name, capacity, food);
             DBHelper.saveOrUpdate(paddock);
             res.redirect("/paddocks");
             return null;
@@ -106,7 +111,7 @@ public class PaddockController {
 
             paddock.setName(Name);
             paddock.setCapacity(capacity);
-            paddock.setFood(DinosaurFood.PLANTS);
+            paddock.setFood(DinosaurFood.valueOf(req.queryParams(food)));
             DBHelper.saveOrUpdate(paddock);
             res.redirect("/paddocks");
             return null;

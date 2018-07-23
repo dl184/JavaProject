@@ -23,18 +23,7 @@ public enum DinosaurFood {
     public int getId() {
         return id;
     }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    @Column(name="type")
-    public String getFoodType() {
-        return foodType;
-    }
-
-    public void setFoodType(String foodType) {
-        this.foodType = foodType;
+    DinosaurFood() {
     }
 }
 
