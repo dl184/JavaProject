@@ -1,6 +1,7 @@
 package controllers;
 
 import db.DBHelper;
+import db.DBPaddock;
 import models.Dinosaur;
 import models.Paddock;
 import models.Park;
