@@ -8,9 +8,9 @@ public class Seeds {
     public static void seedData() {
 
 //        DBHelper.deleteAll(DinosaurFood.class);
-        DBHelper.deleteAll(Paddock.class);
-        DBHelper.deleteAll(Dinosaur.class);
         DBHelper.deleteAll(Park.class);
+        DBHelper.deleteAll(Dinosaur.class);
+        DBHelper.deleteAll(Paddock.class);
         DBHelper.deleteAll(Visitor.class);
 
         Paddock paddock1 = new Paddock("Tyrannosaurus Cell",4, DinosaurFood.PLANTS);
