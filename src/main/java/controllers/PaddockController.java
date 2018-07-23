@@ -56,6 +56,7 @@ public class PaddockController {
             Map<String, Object> model = new HashMap<>();
             List<Paddock> paddocks = DBHelper.getAll(Paddock.class);
             DinosaurFood [] foodTypes = DinosaurFood.values();
+            model.put("foodTypes", foodTypes);
             model.put("paddocks", paddocks);
             model.put("template", "templates/paddocks/create.vtl");
             return new ModelAndView(model, "templates/layout.vtl");

@@ -29,12 +29,10 @@
         <label for="food">Food:</label>
         <select id="food" type="text" name="food">
             #foreach($food in $foodTypes)
-            <option value="DinosaurFood.COW">COW</option>
-            <option value="DinosaurFood.GOAT">GOAT</option>
-            <option value="DinosaurFood.PLANTS">PLANTS</option>
+            <option value=$food>$food</option>
             #end
         <input type="submit" value="Save" class="button">
-
+        </select>
 
     </div>
 </form>
