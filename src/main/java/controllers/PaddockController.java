@@ -15,8 +15,8 @@ import static spark.Spark.post;
 public class PaddockController {
 
     public PaddockController(){
-    this.setupEndpoints();
-}
+        this.setupEndpoints();
+    }
 
     private void setupEndpoints() {
 
@@ -25,7 +25,7 @@ public class PaddockController {
             Integer intId = Integer.parseInt(strId);
             Paddock paddock = DBHelper.find(intId, Paddock.class);
             List<Paddock> paddocks = DBHelper.getAll(Paddock.class);
-            DinosaurFood [] foodTypes = DinosaurFood.values();
+            List<DinosaurFood> foodTypes = DBHelper.getAll(DinosaurFood.class);
             Map<String, Object> model = new HashMap<>();
             model.put("foodTypes", foodTypes);
             model.put("paddock", paddock);
@@ -56,7 +56,7 @@ public class PaddockController {
         get ("/paddocks/new", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             List<Paddock> paddocks = DBHelper.getAll(Paddock.class);
-            DinosaurFood [] foodTypes = DinosaurFood.values();
+            List<DinosaurFood> foodTypes = DBHelper.getAll(DinosaurFood.class);
             model.put("foodTypes", foodTypes);
             model.put("paddocks", paddocks);
             model.put("template", "templates/paddocks/create.vtl");
@@ -81,8 +81,10 @@ public class PaddockController {
         post ("/paddocks", (req, res) -> {
             String name = req.queryParams("name");
             int capacity = Integer.parseInt(req.queryParams("capacity"));
-            DinosaurFood food = DinosaurFood.valueOf(req.queryParams("food"));
-            Paddock paddock = new Paddock(name, capacity, food);
+            String foodString = req.queryParams("food");
+            DinosaurFood food = new DinosaurFood(foodString);
+            String paddockType = req.queryParams("paddockType");
+            Paddock paddock = new Paddock(name, paddockType, capacity, food);
             DBHelper.saveOrUpdate(paddock);
             res.redirect("/paddocks");
             return null;
@@ -102,11 +104,12 @@ public class PaddockController {
             Paddock paddock = DBHelper.find(intId, Paddock.class);
             String Name = req.queryParams("name");
             int capacity = Integer.parseInt(req.queryParams("capacity"));
-            String food = req.queryParams("food");
+            String foodString = req.queryParams("food");
+            DinosaurFood food = new DinosaurFood(foodString);
 
             paddock.setName(Name);
             paddock.setCapacity(capacity);
-            paddock.setFood(DinosaurFood.valueOf(req.queryParams(food)));
+            paddock.setFood(food);
             DBHelper.saveOrUpdate(paddock);
             res.redirect("/paddocks");
             return null;

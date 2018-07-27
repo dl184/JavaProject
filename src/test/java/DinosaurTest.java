@@ -16,8 +16,11 @@ public class DinosaurTest {
 
     @Before
     public void setup(){
-        paddock1 = new Paddock("Zone A", 8, DinosaurFood.COW);
-        paddock2 = new Paddock("Dino World",500,DinosaurFood.PLANTS);
+        DinosaurFood plants = new DinosaurFood("Plants");
+        DinosaurFood cow = new DinosaurFood("Cow");
+        DinosaurFood goat = new DinosaurFood("Goat");
+        paddock1 = new Paddock("Zone A", "Carnivores", 8, cow);
+        paddock2 = new Paddock("Dino World", "Herbivores", 500, plants);
         dinosaur = new Dinosaur(paddock1, "Tyrannosaurus Rex","Carnivores",1500,"Green");
     }
 
@@ -50,7 +53,8 @@ public class DinosaurTest {
 
     @Test
     public void canFeedDinosaur(){
-        dinosaur.feedDinosaur(DinosaurFood.COW);
+        DinosaurFood cow = new DinosaurFood("Cow");
+        dinosaur.feedDinosaur(cow);
         assertEquals(1, dinosaur.getBelly().size());
     }
 }
