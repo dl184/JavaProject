@@ -69,7 +69,8 @@ public class Paddock implements ITicketed {
         this.capacity = capacity;
     }
 
-    @OneToOne(mappedBy = "paddock", fetch = FetchType.EAGER)
+    @ManyToOne
+    @JoinColumn(name = "food_id")
     public DinosaurFood getFood() {
         return food;
     }

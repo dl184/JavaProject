@@ -2,6 +2,8 @@ package db;
 
 import models.*;
 
+import java.util.Arrays;
+
 
 public class Seeds {
 
@@ -16,6 +18,9 @@ public class Seeds {
         DinosaurFood plants = new DinosaurFood("Plants");
         DinosaurFood cow = new DinosaurFood("Cow");
         DinosaurFood goat = new DinosaurFood("Goat");
+        DBHelper.saveOrUpdate(plants);
+        DBHelper.saveOrUpdate(cow);
+        DBHelper.saveOrUpdate(goat);
 
         Paddock paddock1 = new Paddock("Herbivore Cell A", "Herbivores", 4, plants);
         DBHelper.saveOrUpdate(paddock1);
@@ -37,6 +42,7 @@ public class Seeds {
 
         Paddock paddock7 = new Paddock("Carnivore Cell D","Carnivores", 3, cow);
         DBHelper.saveOrUpdate(paddock7);
+
 
         Dinosaur dinosaur1 = new Dinosaur(paddock1, "Stegosaurus","Herbivores",1500,"Green");
         DBHelper.saveOrUpdate(dinosaur1);

@@ -15,8 +15,8 @@ import static spark.Spark.post;
 public class PaddockController {
 
     public PaddockController(){
-    this.setupEndpoints();
-}
+        this.setupEndpoints();
+    }
 
     private void setupEndpoints() {
 

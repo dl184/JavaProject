@@ -1,6 +1,7 @@
 package models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="dinosaurfood")
@@ -8,8 +9,8 @@ public class DinosaurFood {
 
     private int id;
     private String name;
-    private Dinosaur dinosaur;
-    private Paddock paddock;
+    private List<Dinosaur> dinosaurs;
+    private List<Paddock> paddocks;
 
     public DinosaurFood() {
     }
@@ -38,25 +39,21 @@ public class DinosaurFood {
         this.name = name;
     }
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name ="dinosaur_id", nullable = true)
-    public Dinosaur getDinosaur() {
-        return dinosaur;
+    @ManyToMany(mappedBy = "belly")
+    public List<Dinosaur> getDinosaurs() {
+        return dinosaurs;
     }
 
-    public void setDinosaur(Dinosaur dinosaur) {
-        this.dinosaur = dinosaur;
+    public void setDinosaurs(List<Dinosaur> dinosaurs) {
+        this.dinosaurs = dinosaurs;
     }
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name ="paddock_id", nullable = true)
-    public Paddock getPaddock() {
-        return paddock;
+    @OneToMany(mappedBy = "food")
+    public List<Paddock> getPaddocks() {
+        return paddocks;
     }
 
-    public void setPaddock(Paddock paddock) {
-        this.paddock = paddock;
+    public void setPaddocks(List<Paddock> paddocks) {
+        this.paddocks = paddocks;
     }
 }
-
-    

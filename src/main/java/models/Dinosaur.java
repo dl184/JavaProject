@@ -43,7 +43,7 @@ public class Dinosaur {
     }
 
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name ="paddock_id", nullable = false )
     public Paddock getPaddock() {
         return paddock;
@@ -99,7 +99,10 @@ public class Dinosaur {
         this.healthValue = healthValue;
     }
 
-    @OneToMany(mappedBy = "dinosaur", fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "dinosaur_food",
+            joinColumns = {@JoinColumn(name = "dinosaur_id", nullable = false, updatable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "dinosaurfood_id", nullable = false, updatable = false)})
     public List<DinosaurFood> getBelly() {
         return belly;
     }
@@ -132,4 +135,3 @@ public class Dinosaur {
     }
 
 }
-

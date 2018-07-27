@@ -1,4 +1,3 @@
-
 <a href="/paddocks/$paddock.getId()/edit" class="button center">Edit</a>
 <form action="/paddocks/$paddock.getId()/delete" method="post">
     <input type="submit" value="Delete" class="button center">
@@ -17,11 +16,11 @@
         <tr>
             <td>$paddock.getName()</td>
             <td>$paddock.getCapacity()</td>
-            <td>$paddock.getFood()</td>
+            <td>$paddock.getFood().getName()</td>
         <tr>
 
 
 
-</tr>
+        </tr>
     </table>
 </div>

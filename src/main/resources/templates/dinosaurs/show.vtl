@@ -5,9 +5,9 @@
 <a href="/dinosaurs" class="button center">Back to list</a>
 </div>
 
-    #if ($paddock)
-    <p> Paddock: $paddock.getName() $paddock.getCapacity() </p>
-    #end
+#if ($paddock)
+<p> Paddock: $paddock.getName() $paddock.getCapacity() </p>
+#end
 </div>
 
 
@@ -24,13 +24,13 @@
         <tr>
             <td>$dinosaur.getType()</td>
             <td>$dinosaur.getPaddock().getName()</td>
-            <td>$dinosaur.getPaddock().getFood()</td>
+            <td>$dinosaur.getPaddock().getFood().getName()</td>
             <td>$dinosaur.getHeight()</td>
             <td>$dinosaur.getColor()</td>
             <td>$dinosaur.hungerLevel()</td>
             <td>
-                <form action ="/dinosaurs/$dinosaur.getId()" method="post">
-                    <input type="submit" value="Feed Dinosaur"/>
+                <form action ="/dinosaurs/$dinosaur.getId()/feed" method="post">
+                    <input type="submit" value="Feed Dinosaur" name="food"/>
                 </form>
             </td>
         <tr>
