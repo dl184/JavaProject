@@ -1,6 +1,8 @@
 package models;
 
 import Behaviours.ITicketed;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -13,6 +15,7 @@ public class Paddock implements ITicketed {
     private int id;
     private String emergency;
     private String name;
+    private String type; // carnivore or herbivore
     private int capacity;
     private DinosaurFood food;
     private List<Dinosaur> dinosaurs;
@@ -20,8 +23,9 @@ public class Paddock implements ITicketed {
     public Paddock() {
     }
 
-    public Paddock(String name, int capacity, DinosaurFood food) {
+    public Paddock(String name, String type, int capacity, DinosaurFood food) {
         this.name = name;
+        this.type = type;
         this.capacity = capacity;
         this.food = food;
         this.dinosaurs = new ArrayList<>();
@@ -47,6 +51,15 @@ public class Paddock implements ITicketed {
         this.name = name;
     }
 
+    @Column(name="type") // carnivore or herbivore
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     @Column(name = "capacity")
     public int getCapacity() {
         return capacity;
@@ -56,7 +69,8 @@ public class Paddock implements ITicketed {
         this.capacity = capacity;
     }
 
-    @Column(name = "food")
+    @ManyToOne
+    @JoinColumn(name = "food_id")
     public DinosaurFood getFood() {
         return food;
     }
@@ -65,7 +79,8 @@ public class Paddock implements ITicketed {
         this.food = food;
     }
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "paddock", fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "paddock")
+    @Fetch(value = FetchMode.SUBSELECT)
     public List<Dinosaur> getDinosaurs() {
         return dinosaurs;
     }
@@ -88,5 +103,9 @@ public class Paddock implements ITicketed {
 
     public void setEmergency(String emergency) {
         this.emergency = emergency;
+    }
+
+    public void removeDinosaur(Dinosaur dinosaurs) {
+        this.dinosaurs.remove(dinosaurs);
     }
 }

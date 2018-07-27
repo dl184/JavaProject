@@ -12,8 +12,11 @@ public class PaddockTest {
 
     @Before
     public void setUp() {
-        paddock1 = new Paddock("Zone 1", 6, DinosaurFood.COW);
-        paddock2 = new Paddock("Zone 2", 4, DinosaurFood.PLANTS);
+        DinosaurFood plants = new DinosaurFood("Plants");
+        DinosaurFood cow = new DinosaurFood("Cow");
+        DinosaurFood goat = new DinosaurFood("Goat");
+        paddock1 = new Paddock("Zone 1", "Carnivores", 6, cow);
+        paddock2 = new Paddock("Zone 2", "Herbivores", 4, plants);
         }
 
     @Test

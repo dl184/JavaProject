@@ -44,7 +44,7 @@ public class Dinosaur {
 
 
     @ManyToOne
-    @JoinColumn(name = "paddock_id", nullable = true)
+    @JoinColumn(name ="paddock_id", nullable = false )
     public Paddock getPaddock() {
         return paddock;
     }
@@ -99,8 +99,10 @@ public class Dinosaur {
         this.healthValue = healthValue;
     }
 
-    @ElementCollection
-    @Enumerated(value = EnumType.STRING)
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "dinosaur_food",
+            joinColumns = {@JoinColumn(name = "dinosaur_id", nullable = false, updatable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "dinosaurfood_id", nullable = false, updatable = false)})
     public List<DinosaurFood> getBelly() {
         return belly;
     }
@@ -120,5 +122,16 @@ public class Dinosaur {
         return "IM LOVELY AND FULL UP";
     }
 
-}
+    public String hungerLevel(){
+        if(this.belly.size() == 0){
+            return "High";
+        }
+        else if((this.belly.size() > 0) && (this.belly.size() <= 2)){
+            return "Moderate";
+        }
+        else {
+            return "Low";
+        }
+    }
 
+}

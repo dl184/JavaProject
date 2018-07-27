@@ -2,16 +2,16 @@
 
 <form action="/visitors/$visitor.getId()" method="post">
         <label for="name">Name:</label>
-        <input type="text" class="inputBox" name="name" required="true" id="name">
+        <input type="text" class="inputBox" name="name" required="true" id="name" value="$visitor.getName()">
 
         <label for="wallet">Wallet:</label>
-        <input type="number" class="inputBox" name="wallet" required="true" id="wallet">
+        <input type="number" class="inputBox" name="wallet" required="true" id="wallet" value="$visitor.getWallet()">
 
         <label for="age">Age:</label>
-        <input type="number" class="inputBox" name="age" required="true" id="age">
+        <input type="number" class="inputBox" name="age" required="true" id="age" value="$visitor.getAge()" >
 
         <label for="height">Height(cm):</label>
-        <input type="number" class="inputBox" name="height" required="true" id="height">
+        <input type="number" class="inputBox" name="height" required="true" id="height" value= "$visitor.getHeight()">
 
     <input type="submit" value="Save" class="button">
 </form>
